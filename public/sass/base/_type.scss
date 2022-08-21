@@ -1,0 +1,161 @@
+/* -------------------------------------------
+		Typography
+---------------------------------------------- */
+
+@include set-default(
+	(
+		base: (
+			list-circle: (
+				icon: (
+					font-size: 1.1rem
+				)
+			)
+		)
+	)
+);
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	font-weight: 400;
+	margin: 0 0 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font-family;
+	font-weight: 600;
+	line-height: 1.4;
+	color: #222;
+}
+h1 {
+	font-size: 4rem;
+}
+h2 {
+	font-size: 3.4rem;
+}
+h3 {
+	font-size: 3rem;
+}
+h4 {
+	font-size: 2.4rem;
+}
+h5 {
+	font-size: 1.8rem;
+}
+h6 {
+	font-size: 1.5rem;
+}
+p {
+	font-family: $font-family;
+	font-size: 1.4rem;
+	line-height: 1.86;
+}
+blockquote {
+	margin: 0;  
+}
+
+// List
+.list {
+	//margin-left: 2rem;
+	font-size: 1.4rem;
+	line-height: 1.86;
+	color: #666;
+}
+.list-style-none {
+	list-style: none;
+}
+.list-type-number {
+	list-style-type: decimal;
+}
+.list-type-check {
+	li {
+		position: relative;
+		padding-left: 2.4rem;
+		&::before {
+			display: block;
+			position: absolute;
+			left: 3px;
+			top: 2px;
+			font-family: "riode";
+			content: '\e960';
+			font-weight: 700;
+			font-size: 1.2rem;
+			color: #222;
+		}
+	}
+}
+.list-circle {
+	li {
+		padding-left: 1rem;
+		margin-bottom: 1rem;
+	}
+	i {
+		margin-right: 1.2rem;
+		width: 4rem;
+		height: 4rem;
+		border: 1px solid #e1e1e1;
+		border-radius: 50%;
+		text-align: center;
+		line-height: 3.8rem;
+		@include print_css(base, list-circle, icon);
+	}
+}
+.list-arrow {
+	li {
+		position: relative;
+		transition: color .3s, padding .3s;
+		&::before {
+			content: '\e97f';
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			opacity: 0;
+			visibility: hidden;
+			font-family: "riode";
+			font-size: 1.4rem;
+			transition: opacity .3s, visibility .3s; 
+		}
+		&:hover,
+		&.show {
+			padding-left: 2.2rem;
+            color: $primary-color;
+            &::before {
+                visibility: visible;
+                opacity: 1;
+            }
+		}
+	}
+}
+
+// Text Block
+.text-bd-left {
+	position: relative;
+	padding-left: 2rem;
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		left: 0;
+		width: 2px;
+		top: 5px;
+		bottom: 5px;
+		background-color: #dae1e5;
+	}
+}
+
+@include mq(md,max) {
+	.list-type-number {
+		margin-left: 2.3rem;
+	}
+}

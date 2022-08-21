@@ -1,0 +1,247 @@
+/* -------------------------------------------
+    Alert
+        - Default
+        - Simple Alert
+        - Dark Alert
+        - Icon Alert
+        - Light Alert
+        - Message Alert
+        - Button Alert
+        - Summary Alert
+---------------------------------------------- */
+
+// Alert Radius
+.alert-round {
+    border-radius: 3px;
+}
+
+// Default
+.alert {
+    position: relative;
+    padding: 1.6rem 3.8rem 1.6rem 1.8rem;
+    border:  1px solid #222;
+    font-size: 1.4rem;
+    line-height: 1.75;
+
+    .btn-close {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        right: 2.1rem;
+        transform: translateY(-50%);
+        margin-top: -.1rem;
+        font-size: 1.5rem;
+        line-height: 0;
+    }
+}
+.alert-title {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    line-height: inherit;
+    color: inherit;
+}
+
+.btn-close {
+    transition: color .3s;
+    &:hover {
+        color: #000;
+    }
+}
+
+// Color types
+.alert-primary {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    color: $primary-color;
+    // .btn-close { color: $primary-color; }
+}
+
+.alert-success {
+    background-color: $success-color;
+    border-color: $success-color;
+    color: $success-color;
+    // .btn-close { color: $success-color; }
+}
+
+.alert-warning {
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+    color: $secondary-color;
+    //.btn-close { color: $secondary-color; }
+}
+
+.alert-danger {
+    background-color: $alert-color;
+    border-color: $alert-color;
+    color: $alert-color;
+    //.btn-close { color: $alert-color; }
+}
+
+.alert-black {
+    background-color: #222;
+    border-color: #222;
+
+    .btn-close:hover {
+        color: #666;
+    }
+}
+
+//  Simple
+.alert-simple {
+    background-color: transparent;
+    border-style: dashed;
+    border-color: #cacbcc;
+}
+
+
+//   Dark
+.alert-dark {
+    color: #fff;
+    .btn-close {
+        color: #fff;
+    }
+}
+
+//  Icon
+.alert-icon {
+    padding: 1.5rem 3.9rem 1.5rem 1.9rem;
+    > i {
+        vertical-align: middle;
+        margin-right: 1.2rem;
+        line-height: 1;
+        font: {
+            size: 2.4rem;
+            weight: 600;
+        }
+    }
+}
+
+//  Light
+.alert-light {
+    &.alert-primary {
+        background-color: #edf4f9;
+        border-color: #edf4f9;
+    }
+
+    &.alert-danger {
+        background-color: #f6d6d5;
+        border-color: #f6d6d5;
+        color: #6d1a17;
+        .btn-close {
+            color: #6d1a17;
+        }
+    }
+
+    &.alert-warning {
+        background-color: #fff5eb;
+        border-color: #fff5eb;
+    }
+}
+
+// Message
+.alert-message {
+    display: block;
+    padding: 1.3rem 3.9rem 1.9rem 1.9rem;
+    .btn-close {
+        position: absolute;
+        transform: translateY(0);
+        top: 2.7rem;
+        right: 2.1rem;
+        font-size: 1.4rem;
+    }
+
+    .alert-title {
+        margin-bottom: .5rem;
+        font-weight: 700;
+        line-height: 1.7;
+    }
+
+    p {
+        margin: 0;
+        padding-right: 2rem;
+        line-height: 1.7;
+    }
+
+    &.alert-link {
+        p {
+            color: #666;
+        }
+        
+        a {
+            color: $primary-color;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+.alert.alert-inline {
+    padding-right: 4rem;
+    .alert-title {
+        display: inline-block;
+        margin: 0 .8rem 0 0 ;
+    }
+    p { 
+        display: inline;
+    }
+}
+//  Buttons
+.alert-btn {
+    &:not(.alert-message) {
+        padding: .9rem 3.9rem .9rem .9rem;
+    } 
+
+    .btn:not(.btn-close) {
+        margin-right: 1rem;
+        padding: .73em 1.61em;
+    }
+
+    &.alert-message {
+        p {
+            margin-bottom: 1rem
+        }
+    }
+
+    &.alert-dark {
+        &.alert-warning {
+            .btn:not(.btn-close) {
+                background-color: transparent;
+                padding: .7em 1.43em;
+                border-width: 3px;
+                color: #fff;
+                &:hover {
+                    border-color: #df7f50;
+                    background: #df7f50;
+                }
+            }
+        }
+    }
+
+    &.alert-light {
+        &.alert-warning {
+            .btn:not(.btn-close)  {
+                color:  $secondary-color;
+                background-color: #fff;
+                border-color: #fff;
+                &:hover {
+                    color: #fff;
+                    background-color: $secondary-color;
+                    border-color: $secondary-color;
+                }
+            }
+        }
+    }
+}
+
+// Summary
+.alert-summary {
+    > i {
+        margin-right:.9rem;
+        font-size: 1.6rem;
+        line-height: 1.25;
+    }
+    ul {
+        margin: 1.7rem 0 0 2.7rem;
+        list-style-type: disc;
+    }
+}

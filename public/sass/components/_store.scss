@@ -1,0 +1,28 @@
+/* -------------------------------------------
+    Store
+---------------------------------------------- */
+// Store
+.store {
+    font-size: 1.3rem;
+    line-height: 1.85;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    a.social-link {
+        border-color: transparent;
+    }
+    h4 {
+        margin-bottom: 0;
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: -.025em;
+        text-transform: uppercase;
+    }
+    figure {
+        position: relative;
+    }
+    img {
+        width: 100%;
+        display: block;
+    }
+}

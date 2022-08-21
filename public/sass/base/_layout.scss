@@ -1,0 +1,33 @@
+/* -------------------------------------------
+    Layout
+---------------------------------------------- */
+.container,
+.container-fluid {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@include mq(xs, max) {
+    .container,
+    .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+.container-fluid {
+    @include css(max-width, base, _container-fluid-width);
+}
+.container {
+    @include css(max-width, base, _container-width);
+}
+.divider {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1.5rem;
+    height: 2.5rem;
+    width: 1px;
+    background-color: $border-color;
+}

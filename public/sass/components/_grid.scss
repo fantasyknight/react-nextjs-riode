@@ -1,0 +1,151 @@
+.category-section {
+    &.masonry-section { 
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 50%);
+            grid-template-rows: repeat(auto-fill, calc(100% / 3));
+            grid-auto-rows: auto;
+
+            .height-x2 {
+                grid-column-end: span 1;
+                grid-row-end: span 2;
+            }
+        }
+    }
+
+    &.badge-section {
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 50%);
+            grid-template-rows: repeat(auto-fill, 50%);
+            grid-auto-rows: auto;
+
+            .height-x2 {
+                grid-column-end: span 1;
+                grid-row-end: span 2;
+            }
+        }
+    }
+}
+
+.posts.grid:not(.masonry) {
+    display: grid;
+
+    .info-box {
+        grid-column-end: span 3;
+    }
+    
+    &.grid-2cols {
+        grid-template-columns: repeat(auto-fill, 50%);
+    }
+
+    &.grid-3cols {
+        grid-template-columns: repeat(auto-fill, calc(100% / 3));
+    }
+
+    &.grid-4cols {
+        grid-template-columns: repeat(auto-fill, 25%);
+    }
+}
+
+.grid.instagram-masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 25%);
+    grid-template-rows: repeat(auto-fill, calc(100% / 8));
+    grid-auto-rows: auto;
+
+    .height-x2:first-child {
+        grid-column-end: span 2;
+        grid-row-end: span 4;
+    }
+
+    .height-x15 {
+        grid-column-end: span 1;
+        grid-row-end: span 3;
+    }
+
+    .height-x1:nth-child(3),
+    .height-x1:nth-child(7),
+    .height-x1:nth-child(8) {
+        grid-column-end: span 1;
+        grid-row-end: span 2;
+    }
+
+    .height-x2:nth-child(4),
+    .height-x2:nth-child(6) {
+        grid-column-end: span 1;
+        grid-row-end: span 4;
+    }
+
+    .height-x25 {
+        grid-column-end: span 1;
+        grid-row-end: span 5;
+    }
+}
+
+@include mq(xl, max) {
+    .posts.grid:not(.masonry) {
+        &.grid-4cols {
+            grid-template-columns: repeat(auto-fill, calc(100% / 3));
+        }
+    }
+}
+
+@include mq(lg, max) {
+    .posts.grid:not(.masonry) {   
+        &.grid-3cols,
+        &.grid-4cols {
+            grid-template-columns: repeat(auto-fill, 50%);
+        }
+    }
+}
+
+@include mq(md, max) {
+    .category-section {
+        &.masonry-section { 
+            .grid {
+                grid-template-rows: repeat(auto-fill, calc(100% / 6));
+
+                .height-x2 {
+                    grid-column-end: span 2;
+                    grid-row-end: span 2;
+                }
+
+                .height-x1 {
+                    grid-column-end: span 2;
+                }
+            }
+        }
+
+        &.badge-section {
+            .grid {
+                grid-template-rows: repeat(auto-fill, 25%);
+    
+                .height-x2 {
+                    grid-column-end: span 2;
+                    grid-row-end: span 2;
+                }
+
+                .height-x1 {
+                    grid-column-end: span 2;
+                }
+            }
+        }
+    }
+
+    .grid.instagram-masonry {
+        grid-template-columns: repeat(auto-fill, 50%);
+        grid-template-rows: repeat(auto-fill, calc(100% / 18));
+        grid-auto-rows: auto;
+    }
+}
+
+@include mq(sm, max) {
+    .posts.grid:not(.masonry) {
+        &.grid-2cols,  
+        &.grid-3cols,
+        &.grid-4cols {
+            grid-template-columns: repeat(auto-fill, 100%);
+        }
+    }
+}

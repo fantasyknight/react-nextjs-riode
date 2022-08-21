@@ -1,0 +1,241 @@
+/* -------------------------------------------
+    Accordion
+---------------------------------------------- */
+
+// Default
+.accordion {
+	overflow: hidden;
+}
+.card-header {
+	text-transform: capitalize;
+	font: {
+		size: 1.8rem;
+		weight: 600;
+	}
+	line-height: 1;
+	color: #222;
+	
+	a {
+		display: flex;
+		align-items: center;
+		position: relative;
+		padding: 1.8rem .5rem;
+		&:hover {
+			color: $primary-color;
+
+			&::after {
+				color: $primary-color;
+			}
+		}
+		
+		&::after {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: .5rem;
+			font: {
+				family: "riode";
+				size: 1.8rem;
+				weight: 400;
+			}
+			letter-spacing: -.01em;
+			color: #222;
+		}
+	}
+
+	.expanded {
+		color: $primary-color;
+
+		&::after {
+			color: $primary-color;
+		}
+	}
+}
+
+// .expand {
+// 	&::after {
+// 		content: '\e953';
+// 	}
+// }
+// .collapse {
+// 	&::after {
+// 		content: '\e952';
+// 	}
+// }
+.card-body {
+	padding: 1.3rem .5rem;
+}
+
+.card-wrapper {
+	overflow: hidden;
+
+	&.collapse:not(.show) {
+		display: none;
+	}
+	
+	&.collapsing {
+		position: relative;
+		height: 0;
+		overflow: hidden;
+		transition: height .35s ease;
+	}
+}
+
+.card {
+	background-color: #fff;
+	overflow: hidden;
+}
+
+// Simple
+.accordion-simple {
+	.card {
+		border-top: 1px solid $border-color;
+	}
+}
+
+// Gutter
+.accordion-gutter-md {
+	.card {
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.accordion-gutter-sm {
+	.card {
+		&:not(:last-child) {
+			margin-bottom: 2px;
+		}
+	}
+}
+
+// Toggle Icon Plus
+.accordion-plus {
+	.toggle-button.collapsed, .toggle-button.collapsing {
+		&::after {
+			content: '\f2c3';
+		}
+	}
+	.toggle-button.expanded, .toggle-button.expanding {
+		&::after {
+			content: '\f28f';
+		}
+	}
+}
+
+// Boxed Style
+.accordion-boxed {
+	.card-header a,
+	.card-body {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	.card-header {
+		a::after {
+			right: 2.3rem;
+		}
+	}
+}
+
+.toggle-button.collapsed, .toggle-button.collapsing {
+	&::after {
+		content: '\e953';
+	}
+}
+
+.toggle-button.expanded, .toggle-button.expanding {
+	&::after {
+		content: '\e952';
+	}
+}
+
+// Border Style
+.accordion-border {
+	.card {
+		border-width: 1px 1px 0;
+		border-style: solid;
+		border-color: $border-color;
+		&:last-child {
+			border-bottom: 1px solid $border-color;
+		}
+	}
+} 
+
+// Background Style
+.accordion-background {
+	.card {
+		background-color: #fff;
+		border-color: #fff;
+	}
+}
+
+// Drop Shadow Style
+.accordion-dropshadow {
+	box-shadow: 0 0 15px 0 rgba(0,0,0,.12);
+	.card {
+		background-color: #fff;
+		border-color: #fff;
+	}
+}
+
+// Icon Style
+.accordion-icon {
+	.card-header {
+		i {
+			margin-right: 1.5rem;
+			font: {
+				size: 1.8rem;
+				weight: 400;
+			}
+			letter-spacing: -.01em;
+			line-height: 0;
+		}
+	}
+}
+
+// Card Background Style
+.accordion-card-bg {
+	.card {
+		border: 1px solid #f2f3f5;
+	}
+	.card-header {
+		a {
+			padding-top: 1.7rem;
+			padding-bottom: 1.7rem;
+			background-color: #f2f3f5;
+		}
+	}
+	&.accordion-primary {
+		.card {
+			border: 0;
+			background-color: #f2f3f5;
+		}
+		.card-header {
+			a {
+				padding-top: 1.8rem;
+				padding-bottom: 1.8rem;
+				background-color: #3377cc;
+				color: #fff;
+				&::after {
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+// Set active color when Card is expanded.
+.accordion-color {
+	.collapse {
+		color: $primary-color;
+	}
+}
+
+// Card Border
+.accordion-card-border {
+	.card {
+		border: 1px solid #dae1e5;
+	}
+}

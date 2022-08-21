@@ -1,0 +1,49 @@
+/* -------------------------------------------
+    Element Instagram Page
+---------------------------------------------- */
+
+.instagram-masonry {
+    .height-x25 {
+        height: 407px;
+    }
+    .height-x2 {
+        height: 326px;
+    }
+    .height-x1 {
+        height: 163px;
+    }
+    .height-x15 {
+        height: 244px;
+    }
+    .grid-item {
+        overflow: hidden;
+        padding: 1rem;
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .instagram {
+        height: 100%;
+    }
+}
+
+@include mq(md, max) {
+    .instagram-masonry {
+        .height-x25 {
+            height: 305px;
+        }
+        .height-x2 {
+            height: 244px;
+        }
+        .height-x1 {
+            height: 122px;
+        }
+        .height-x15 {
+            height: 183px;
+        }
+    }
+}

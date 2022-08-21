@@ -1,0 +1,180 @@
+/* -------------------------------------------
+    Wishlist Page
+---------------------------------------------- */
+.shop-table {
+    text-align: left;
+    tbody {
+        border-bottom: 1px solid $border-color;
+    }
+    td {
+        padding: 1.5rem 1rem 1.5rem 0;
+        border-top: 1px solid $border-color;
+        font-size: 1.4rem;
+    }
+    th {
+        padding: .3rem 0 .3rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 1.875;
+        text-transform: uppercase;
+        color: #222;
+    }
+    img {
+        display: block;
+        max-width: 100px;
+    }
+    .product-thumbnail a {
+        display: block;
+        width: 100px;
+    }
+    .remove {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.3rem;
+        height: 2.3rem;
+        font-size: 1.2rem;
+        color: #222;
+        border: 1px solid $light-color;
+        border-radius: 50%;
+    }
+    .product-name { 
+        white-space: normal; 
+        color: #000;
+    }
+    td.product-remove {
+        padding-right: 0;
+        width: 23px;
+    }
+    .product-price {
+        display: table-cell;
+    }
+}
+.share-on {
+    & > * {
+        margin-right: 2.8rem;
+    }
+    .social-link {
+        border: none; 
+        width: auto;
+        height: auto;
+        &.social-facebook {
+            color: $social-facebook;
+        }
+        &.social-twitter {
+            color: $social-twitter;
+        }
+        &.social-pinterest {
+            color: $social-pinterest;
+        }
+        &.social-email {
+            color: $social-email;
+        }
+        &.social-whatsapp {
+            color: $social-whatsapp;
+        }
+        &.social-icon:hover {
+            background-color: transparent;
+            color: $primary-color;
+        }
+    }
+}
+@include mq('md') {
+    .wishlist-table {
+        // td.product-price {
+        //     width: 130px;
+        // }
+        td.product-stock-status {
+            width: 130px;
+        }
+    }
+}
+@include mq('lg') {
+    .wishlist-table {
+        // td.product-price {
+        //     width: 107px;
+        // }
+        td.product-stock-status {
+            width: 201px;
+        }
+        td.product-add-to-cart {
+            width: 235px;
+        }
+    }
+}
+@include mq(md, max) {
+    .shop-table {
+        text-align: center;
+        thead { display: none; }
+        tbody, tr, td { display: block; }
+        tbody {
+            border: 1px solid $border-color;
+        }
+        tr {
+            position: relative;
+            padding: 4rem 1rem 4rem;
+            & + tr {
+                border-top: 1px solid $border-color;
+            }
+        }
+        td {
+            padding: 0;
+            border: none;
+        }
+        .product-thumbnail {
+            margin-bottom: 1rem;
+        }
+        .product-thumbnail a,
+        .btn-product,
+        td {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .product-stock-status {
+            margin-bottom: 1rem;
+        }
+        .btn-product {
+            max-width: 220px;
+        }
+        .product-remove {
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            padding: .5rem;
+            width: auto;
+        }
+        .product-quantity {
+            margin-bottom: 1rem;
+        }
+    }
+    .wishlist-table {
+        td.product-price {
+            display: block;
+            width: 100%;
+        }
+    }
+}
+.wishlist-table {
+    th.product-name {
+        padding-left: 2px;
+        width: 120px;
+    }
+    .wishlist-out-stock { color: $secondary-color; }
+    .wishlist-in-stock { color: $primary-color; }
+    .btn-product {
+        padding: 1.4rem;
+        white-space: nowrap;
+        width: 13rem;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        transition: color .3s, background-color .3s;
+        &:hover {
+            color: #fff;
+            background-color: $primary-color;
+        }
+        &.btn-disabled {
+            border-color: #f2f3f5 !important;
+            background-color: #f2f3f5 !important;
+        }
+    }
+}

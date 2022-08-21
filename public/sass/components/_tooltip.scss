@@ -1,0 +1,33 @@
+/* -------------------------------------------
+	Tooltips 
+------------------------------------------- */
+
+.tooltiptext {
+	font-family: $font-family;
+	position: absolute;
+	padding: 1rem .7rem;
+	bottom : 150%;
+	left : 48%;
+	background-color: #333;
+	color: #fff;
+	font-size: 1.3rem;
+	font-weight: 400;
+	letter-spacing : 0.01em;
+	text-align: center;
+	visibility: hidden;
+	opacity: 0;
+	transform : translateX(-50%);
+	z-index: 1;
+	transition: opacity .3s;
+}
+
+.tooltip-top::after {
+	content: "";
+	position: absolute;
+	top: 96%;
+	left: 50%;
+	margin-left: -6px;
+	border-width: 6px;
+	border-style: solid;
+	border-color: #333 transparent transparent transparent;
+}

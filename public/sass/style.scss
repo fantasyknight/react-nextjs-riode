@@ -1,0 +1,106 @@
+@charset 'UTF-8';
+
+/*
+1. config
+2. mixins
+3. plugins
+4. base
+5. components
+6. header
+7. footer
+8. demo
+*/
+
+/* 1. config */
+@import 'config/variables';
+
+/* 2. mixins */
+@import 'mixins/breakpoints'; 
+@import 'mixins/core';
+@import 'mixins/buttons';
+
+/* 3. plugins */
+@import 'components/slider';
+@import 'components/nouislider';
+
+/* 4. base */
+@import 'demo/demo1_config';
+
+@import 'base/base';
+@import 'base/helper';
+@import 'base/type';
+@import 'base/layout';
+@import 'base/grid';
+@import 'base/spacing';
+
+/* 5, components */
+@import 'components/accordion';
+@import 'components/alerts';
+@import 'components/animation';
+@import 'components/banners';
+@import 'components/blog';
+@import 'components/buttons';
+@import 'components/categories';
+@import 'components/comments';
+@import 'components/counter';
+@import 'components/elements';
+@import 'components/forms';
+@import 'components/grid';
+@import 'components/icon-boxes';
+@import 'components/icons';
+@import 'components/input-range';
+@import 'components/instagram';
+@import 'components/lazy-load-image';
+@import 'components/member';
+@import 'components/minipopup';
+@import 'components/overlay';
+@import 'components/page-header';
+@import 'components/pagination';
+@import 'components/popups';
+@import 'components/products';
+@import 'components/product-single';
+@import 'components/quickview';
+@import 'components/social-icons';
+@import 'components/sidebar';
+@import 'components/sidebar-shop';
+@import 'components/skeleton';
+@import 'components/store';
+@import 'components/tabs';
+@import 'components/testimonials';
+@import 'components/toast';
+@import 'components/tooltip';
+@import 'components/titles';
+@import 'components/vendor';
+@import 'components/widgets';
+
+/* 6. header */
+@import 'base/header/header';
+@import 'base/header/dropdown';
+@import 'base/header/menu';
+
+/* 7. footer */
+@import 'base/footer/footer';
+
+/* 8. Pages */
+@import 'pages/about';  
+@import 'pages/account';   
+@import 'pages/buttons';
+@import 'pages/categories';
+@import 'pages/coming';
+@import 'pages/contact';
+@import 'pages/error';
+@import 'pages/products';
+@import 'pages/cta';
+@import 'pages/instagrams';
+@import 'pages/blog';
+@import 'pages/shop';
+@import 'pages/product-single';
+@import 'pages/post-single';
+@import 'pages/wishlist';
+@import 'pages/cart';
+@import 'pages/checkout';
+@import 'pages/order';
+@import 'pages/icons';
+@import 'pages/faq';
+
+@import 'demo/demo1_custom';

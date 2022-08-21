@@ -1,0 +1,945 @@
+/* -------------------------------------------
+    Menu
+        - Default
+
+        - Menu(MainMenu)
+            - MegaMenu
+            - MenuBanner
+            - Tips
+
+        - MobileMenu 
+        
+            - MobileMenuWrapper
+            - MobileMenuContainer
+            - MobileMenu
+            - MobileMenuOverlay
+            - MobileMenuCloseButton
+
+        - CategoryMenu
+ ------------------------------------------- */
+// Variables
+@include set-default(
+	(
+		menu: (
+            // Active color
+            active: (
+                color: $primary-color
+            ),
+            // Ancestor
+            ancestor: (
+                _gap: 3rem,
+                padding: 1.3rem 0,
+                font-family: false,
+                font-size: false,
+                font-weight: 700,
+                letter-spacing: inherit,
+                line-height: 1,
+                text-transform: capitalize,
+                color: false,
+                _active-color: false,
+            ),
+            // Tip
+            tip: (
+                padding: .3rem .5rem,
+                font-size: 1rem,
+                font-weight: 600,
+                line-height: 1,
+                color: #fff,
+                text-transform: uppercase,
+                border-radius: 2px,
+                // Hot Label
+                _hot-color: #d26e4b,
+                // New Label
+                _new-color: $primary-color
+            ),
+            // MegaMenu
+            megamenu: (
+                padding: 1rem,
+                min-width: 61.8rem,
+                background: #fff,
+                title: (
+                    padding: 0 1rem,
+                    font-family: false,
+                    font-size: 1.4rem,
+                    font-weight: 600,
+                    line-height: 1,
+                    letter-spacing: false,
+                    text-transform: uppercase
+                ),
+            ),
+            // SubMenu
+            submenu: (
+                padding: 2rem 0,
+                background: #fff,
+                font-size: 1.4rem,
+                font-weight: 400,
+                line-height: 1.5,
+                letter-spacing: 0,
+                text-transform: false,
+                color: #666
+            )
+        ),
+        mobile-menu: (
+            color: #e1e1e1,
+            text-transform: uppercase,
+            font-size: 1.2rem,
+            font-weight: 700,
+            line-height: 1.5,
+            letter-spacing: -.025em,
+            // Mobile Menu Container
+            container: (
+                max-width: 296px,
+                padding: 2rem 1.5rem,
+                background: #222529,
+                border-color: #2e3237,
+            ),
+            // Mobile Menu Item
+            item: (
+                padding: 1.3rem .6rem 1.3rem 1rem
+            ),
+            // Active
+            active: ( 
+                background: false,
+                color: false,
+                border: false
+            ),
+            // Title
+            title: (
+                text-transform: uppercase,
+                font-size: 1.4rem,
+                font-family: false,
+                font-weight: 700,
+                color: #fff
+            ),
+            // Overlay
+            overlay: (
+                background: #000,
+                opacity: .8
+            )
+        ),
+        category-menu: (
+            padding: false,
+            background: #fef0e3,
+            border: false,
+            _item-active-color: $primary-color,
+            // Title
+            title: (
+                padding: 1.8rem .2rem 1.8rem,
+                margin: 0,
+                border-bottom: false,
+                text-transform: capitalize,
+                font-size: 1.8rem,
+                font-weight: 700,
+                font-family: $font-family,
+                line-height: 1,
+                letter-spacing: -.05em,
+                color: #222
+            ),
+            // Ancestor
+            ancestor: (
+                padding: 1.2rem 0 1.3rem,
+                font-weight: 400,
+                font-size: 1.3rem,
+                line-height: 1.46,
+                letter-spacing: -.01em,
+                text-transform: capitalize,
+                color: #675545,
+                _split-line: 1px solid #f0e0d1,
+                margin: false,
+                min-height: false,
+            ),
+            // Icon
+            icon: (
+                margin-right: 1rem,
+                padding-left: .2rem,
+                font-size: 2rem,
+                color: #666,
+            ),
+            // Submenu
+            submenu: (
+                padding: 2rem 0,
+                background: #fff,
+                font-family: $font-family,
+                font-size: 1.4rem,
+                font-weight: false,
+                line-height: 1.5,
+                letter-spacing: 0,
+                text-transform: false,
+                color: #666
+            )
+        )
+    )
+);
+// Default Menu Styles
+.menu {
+    display: flex;
+    align-items: center;
+    a {
+        display: inline-block;
+    }
+    .menu-title {
+        margin-bottom: 1rem;
+        @include print_css( menu, megamenu, title );
+    }
+    ul {
+        @include print_css( menu, submenu );
+    }
+    li {
+        position: relative;
+        @include css( line-height, menu, submenu, line-height );
+        a {
+            padding: .7rem 0 .7rem 1rem;
+        }
+        > ul,
+        .megamenu {
+            position: absolute;
+            top: -9999px;
+            left: 100%;
+            margin: 0;
+            box-shadow: 0 2px 35px rgba(0,0,0,0.1);
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: transform .2s ease-out;
+            transform: translate3d(0, -10px, 0);
+        }
+        > ul {
+            min-width: 22.6rem;
+            @include css( background, menu, submenu, background );
+            li {
+                padding: 0 2rem;
+            }
+        }
+    }
+    li:hover,
+    .active {
+        > a:not(.menu-title) {
+            @include css( color, menu, active, color );
+        }
+    }
+    li:hover,
+    .show {
+        > ul,
+        .megamenu {
+            visibility: visible;
+            opacity: 1;
+            top: -2rem;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    > li {
+        @include css( margin-right, menu, ancestor, _gap );
+        &:last-child {
+            margin-right: 0;
+        }
+        > a {
+            position: relative;
+            @include print_css( menu, ancestor );
+            &::after { 
+                margin-left: .8rem;
+            }
+        }
+        > ul,
+        .megamenu {
+            left: -1.9rem;
+        }
+        &:hover,
+        &.active {
+            > a:not(.menu-title) {
+                @include css( color, menu, ancestor, _active-color );
+            }
+        }
+        &:hover,
+        &.show {
+            > ul,
+            .megamenu {
+                top: 100%;
+                z-index: 1201;
+            }
+            // &::after {
+            //     visibility: visible;
+            //     opacity: 1;
+            //     top: calc(100% - 20px);
+            //     transform: translate3d(-50%, 0, 0);
+            // }
+        }
+    }
+    .submenu {
+        > a {
+            position: relative;
+            display: block;
+        }
+    }
+    > .submenu {
+        > a {
+            // display: flex;
+            // align-items: center;
+            z-index: 1001;
+            &::after {
+                position: static;
+                content: '\f078';
+                margin-top: 0;
+            }
+        }
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     z-index: 1000;
+        //     left: 50%;
+        //     top: -9999px;
+        //     transform: translate3d(-50%, -8px, 0);
+        //     border: 11px solid transparent;
+        //     border-bottom: 11px solid #fff;
+        //     transition: opacity .2s ease-out, transform .2s ease-out;
+        //     visibility: hidden;
+        //     opacity: 0;
+        //     cursor: pointer;
+        // }
+    }
+    &.no-arrow {
+        > li {
+            > a {
+                &::after {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+.submenu {
+    > a {
+        &::after {
+            display: inline-block;
+            position: absolute;
+            margin-top: 2px;
+            right: .5rem;
+            top: 50%;
+            line-height: 0;
+            vertical-align: middle;
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: inherit;
+            content: '\f054';
+        }
+    }
+}
+
+// Vertical Menu
+.vertical-menu {
+    display: block;
+    min-width: 12rem;
+    > li {
+        margin-right: 0;
+        padding: 0 2rem;
+        > ul,
+        .megamenu {
+            transform: translate3d(-15px,0,0); 
+        }
+        > a {
+            display: inline-block;
+            &::after {
+                content: none;
+            }
+        }
+        &:hover,
+        &.show {
+            > ul,
+            .megamenu {
+                left: 100%;
+                top: -1rem;
+            }
+        }
+    }
+    > .submenu {
+        &::after {
+            border: 11px solid transparent;
+            border-right: 11px solid #fff;
+        }
+        &:hover,
+        &.show {
+            &::after {    
+                top: 50%;
+                left: calc(100% - 20px);
+                transform: translate3d(0, -50%, 0);
+            }
+        }
+        > a {
+            &::after {
+                position: absolute;
+                line-height: 0;
+                content: '\f054';
+            }
+        }
+    }
+    &.no-arrow {
+        > li {
+            display: flex;
+            > a {
+                &::after {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+
+.toggle-menu {
+    display: block;
+    > li {
+        margin-right: 0;
+    }
+    .submenu {
+        &::after,
+        > a::after {
+            content: none;
+        }
+        li {
+            padding: 0 .5rem;
+        }
+    }
+    li > ul {
+        display: none;
+        position: static;
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        background: transparent;
+        box-shadow: none;
+    }
+}
+
+// MobileMenu SlideToggle Button
+.toggle-btn {
+    display: block;
+    position: absolute;
+    padding: 6px;
+    right: 0;
+    top: 50%;
+    transform: translateY( -50% );
+    opacity: .6;
+
+    &:not(.parse-content) {
+        position: absolute;
+    }
+
+    &:not(.parse-content)::before {
+        content: "\f054";
+        display: block;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: 'Font Awesome 5 Free';
+        line-height: 1;
+        transition: transform .5s;
+    }
+
+    &.expanded:not(.parse-content)::before {
+        transform: rotate(630deg);       
+    }
+
+    &.collapsed:not(.parse-content)::before {
+        transform: rotate(0deg);       
+    }
+
+    &.expanding:not(.parse-content)::before {
+        transform: rotate(630deg);
+    }
+}
+
+// Underline Hover Style
+.menu-active-underline {
+    > li {
+        > a {
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 9px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                border: 1px solid;
+                transform-origin: right center;
+                transform: scale(0, 1);
+                transition: transform .3s;
+            }
+        }
+        &.active,
+        &:hover {
+            > a {
+                color: inherit;
+                &::before {
+                    transform-origin: left center;
+                    transform: scale(1, 1);
+                }
+            }
+        }
+    }
+}
+
+// Main Menu
+.main-nav {
+    @include print_css( header, main-nav );
+}
+// Mega menu
+.megamenu {
+    display: flex;
+    @include print_css( menu, megamenu );
+    ul {
+        padding: 0;
+    }
+    .row { 
+        flex: 1;
+        padding: 0 1rem;
+        > * {
+            padding: 1.8rem 1rem .8rem;
+        }
+    }
+}
+
+// Menu Banner
+.megamenu .menu-banner {
+    padding: 0;
+    overflow: hidden;
+    figure { height: 100%; }
+    img {
+        height: 100%;
+        object-fit: cover;
+    }
+    .btn-link:hover {
+        color: $primary-color;
+    }
+}
+.menu-banner1 {
+    .banner-content { left: 9%; }
+    .banner-title,
+    .banner-subtitle { font-size: 3.6rem; }
+    .banner-subtitle { margin-bottom: .4rem; }
+    .banner-title {
+        margin-bottom: 1.8rem;
+        padding-left: 1.2rem;
+        position: relative;
+        span {
+            display: inline-block;
+            position: absolute;
+            left: -.9rem;
+            top: 50%;
+            font-size: 1.2rem;
+            line-height: 1;
+            transform: rotateZ(-90deg) translateX(.6rem);
+            letter-spacing: -.1em;
+        }
+    }
+}
+.menu-banner2 {
+    .banner-content { bottom: 10%; }
+    .banner-title {
+        margin-bottom: .6rem;
+        font-size: 2.6rem;
+    }
+    .banner-subtitle {
+        font-size: 1.6rem;
+    }
+}
+
+// Tip
+.tip {
+    display: inline-block;
+    position: relative;
+    top: -1px;
+    left: 7px;
+    @include print_css( menu, tip );
+
+    &.tip-hot {
+        @include css( background-color, menu, tip, _hot-color);
+    }
+
+    &.tip-new {
+        @include css( background-color, menu, tip, _new-color);
+    }
+}
+
+// Mobile Menu
+// Mobile Menu Wrapper
+.mobile-menu-wrapper {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    font-family: $font-family;
+    transition: visibility .4s;
+}
+
+// Mobile Menu Container
+.mobile-menu-container {
+    @include css( max-width, mobile-menu, container, max-width);
+    @include css( padding, mobile-menu, container, padding);
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    @include css( background, mobile-menu, container, background);
+    box-shadow: 1px 0 5px rgba(0,0,0,.5);
+    transform: translateX(-#{get( mobile-menu, container, max-width )});
+    transition: transform .4s;
+    .input-wrapper {
+        display: flex;
+        margin-bottom: .6rem;
+        height: 4rem;
+        .form-control {
+            min-height: 4rem;
+            color: #7a8088;
+            border: 1px solid;
+            @include css( border-color, mobile-menu, container, border-color);
+            border-right: 0;
+            background-color: transparent;
+        }
+        .btn-search {
+            padding: 0;
+            width: 4rem;
+            background-color: $primary-color;
+            border-color: $primary-color;
+            color: #fff;
+            font-size: 1.4rem;
+            border-radius: 3px;
+            i {
+                margin: 0 0 .5rem;
+                font-size: inherit;
+            }
+        }
+    }
+    .mobile-menu {
+        margin-bottom: .5rem;
+        @include css( background, mobile-menu, container, background);
+    }
+    .tab {
+        margin-top: 3rem;
+    }
+    .tab-content {
+        background-color: transparent;
+    }
+    .nav {
+        border-width: 2px;
+    }
+    .nav-link {
+        margin-bottom: -2px;
+        color: #fff;
+        font-size: 13px;
+        padding: 10px;
+    }
+    .tab-pane {
+        padding-top: 10px;
+    }
+    .nav-item:hover .nav-link {
+        color: #fff;
+        border-color: transparent;
+    }
+    .nav-item.show .nav-link,
+    .nav-item .nav-link.active {
+        color: $primary-color;
+        border-color: $primary-color;
+    }
+    .nav-item + .nav-item { margin-left: 1px; }
+    &.scrollable::-webkit-scrollbar-thumb, .sidebar-content::-webkit-scrollbar-thumb {
+        margin-right: 2px;
+        background: rgba(255,255,255,.1);
+        border-radius: 7px;
+        cursor: pointer;
+    }
+}
+
+@include mq(xs, max) {
+    @include set-default (
+        (
+            mobile-menu: (
+                container: (
+                    max-width: 27rem
+                )
+            )
+        )
+    )
+}
+
+// MobileMenu
+.mobile-menu {
+    text-transform: uppercase;
+    font: {
+        size: 1.2rem;
+        weight: 700;
+    }
+    line-height: 1.5;
+    letter-spacing: -.025em;
+    @include print_css( mobile-menu );
+
+    ul {
+        // display: none;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    > li {
+        &:first-child {
+            padding-top: .5rem;
+        }
+        &:last-child {
+            padding-bottom: .5rem;
+        }
+    }
+
+    li {
+        a {
+            display: block;
+            position: relative;
+            @include css( padding, mobile-menu, item, padding);
+        }
+        i {
+            display: inline-block;
+            margin-bottom: 1px;
+            font-size: 2rem;
+            margin-right: 1rem;
+            line-height: 0;
+            vertical-align: middle;
+        }
+        // List Padding
+        li { 
+            a {
+                padding-left: 2.4rem;
+            }
+
+            li {
+                a {
+                    padding-left: 3.6rem;
+                }
+            }
+        }
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #2e3237;
+        }
+    }
+    .expanded,
+    .active > a {
+        @include print_css( mobile-menu, active );
+    }
+}
+.mobile-menu-title {
+    margin-bottom: .5rem;
+    @include print_css( mobile-menu, title );
+}
+// MobileMenu Overlay
+.mobile-menu-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    @include css( background, mobile-menu, overlay, background);
+    opacity: 0;
+    transition: opacity .4s;
+}
+// MobileMenu Close Button
+.mobile-menu-close {
+    position: fixed;
+    left: calc(100vw - 50px);
+    top: 25px;
+    z-index: 10001;
+    i {
+        font-size: 2.8rem;
+        color: #e1e1e1;
+    }
+    transition: opacity .3s;
+    opacity: 0;
+}
+// MobileMenu Animation ( new )
+.mmenu-anim {
+    transform: translateY(30%);
+    &, > li {
+        transition: transform .4s, opacity .3s;
+        transition-timing-function: cubic-bezier(0.5, 0, 0.3, 1);
+    }
+    @for $i from 0 through 12 {
+        >li:nth-child(#{$i}) {
+            opacity: 0;
+            transform: translateY( #{$i*50}px );
+        }
+    }
+}
+.mmenu-active {
+    overflow: hidden;
+
+    .mmenu-anim {
+        > li,
+        & {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .page-wrapper {
+        // if page wrapper has margin-left, then recalculate it's movement
+
+        margin-left: #{get( mobile-menu, container, max-width )};
+
+        margin-right: -#{
+            get( mobile-menu, container, max-width ) - 
+            if( get( base, page-wrapper, margin-left ), get( base, page-wrapper, margin-left ), 0 )
+        };
+    }
+
+    .mobile-menu-wrapper {
+        visibility: visible;
+    }
+
+    .mobile-menu-container {
+        transform: translateX(0);
+    }
+
+    .mobile-menu-overlay {
+        @include css( opacity, mobile-menu, overlay, opacity);
+    }
+
+    .mobile-menu-close {
+        opacity: 1;
+    }
+}
+
+@include mq( '400px', 'max' ) {
+    .mobile-menu-close {
+        left: calc(100vw - 40px);
+        top: 10px;
+    }
+}
+
+// CategoryMenu
+.category-menu {
+    @include print_css( category-menu );
+    .menu-title {
+        @include print_css( category-menu, title );
+    }
+    .menu-body {
+        &:last-child {
+            li:last-child {
+                border: 0;
+            }
+        }
+    }
+    i { 
+        vertical-align: middle;
+        line-height: 0;
+        @include print_css( category-menu, icon );
+        
+    }
+    > li {
+        > a {
+            display: block;
+            @include print_css( category-menu, ancestor );
+        }
+        &:not(:last-child) {
+            > a {
+                @include css( border-bottom, category-menu, ancestor,  _split-line );
+            }
+        }
+    }
+    li {
+        &:hover {
+            > a:not(.menu-title) {
+                @include css( color, category-menu, _item-active-color );
+                i {
+                    color: inherit;
+                }
+            }   
+        }
+    }
+    .submenu {
+        > a::after {
+            font-size: 1rem;
+        }
+        .megamenu {
+            min-width: 68.5rem;
+            padding: 0 0 0 .9rem;
+            > li {
+                padding: 0 1rem;
+                flex: 1;
+                &:last-child {
+                    padding-right: 0;
+                    flex: none;
+                }
+            }
+            .menu-title {
+                padding: 2.7rem 0rem 0.2rem;
+                font-size: 1.4rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: -.025em;
+            }
+            .divider {
+                height: 1px;
+                width: 100%;
+                margin: 0;
+            }
+            ul {
+                position: relative;
+                left: 0;
+                top: 0;
+                padding: 0;
+                font-size: 1.3rem;
+                opacity: 1;
+                visibility: visible;
+                box-shadow: none;
+                min-width: auto;
+                z-index: auto;
+                transform: none;
+                li {
+                    padding: 0;
+                    line-height: 1.2;
+                    a {
+                        padding: 0.7rem 0;
+                    }
+                }
+            }
+            .menu-banner {
+                .banner-content {
+                    left: 3rem;
+                }
+                .banner-subtitle {
+                    font-size: 1.4rem;
+                }
+                .banner-title {
+                    font-size: 2.4rem;
+                    line-height: 1.2;
+                    margin-bottom: 2.8rem;
+                }
+                .btn-md {
+                    padding: 0.7em 1.41em 0.7em 1.41em;
+                }
+            }
+            .menu-banner5 {
+                .banner-content {
+                    top: 2.6rem;
+                }
+                .banner-subtitle {
+                    margin-bottom: 1.1rem;
+                }
+                .banner-title {
+                    line-height: 1.25;
+                }
+            }
+            &.type2 {
+                display: block;
+                min-width: 88rem;
+                padding: 0 1rem 2rem;
+                .menu-title {
+                    padding-top: 1.5rem;
+                }
+                figure {
+                    text-align: center;
+                }
+            }
+        }
+    }
+    ul {
+        @include print_css( category-menu, submenu );
+    }
+}

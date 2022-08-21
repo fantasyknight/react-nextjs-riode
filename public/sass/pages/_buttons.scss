@@ -1,0 +1,61 @@
+/* -------------------------------------------
+    Element Button Page
+---------------------------------------------- */
+
+.section-buttons {
+    .row {
+        justify-content: center;
+        text-align: center;
+    }
+    &.grey-section {
+        .title-wrapper {
+            p {
+                color: #666;
+            }
+        }
+    }
+    &.background-section {
+        padding: 6.6rem 0 5rem;
+        p {
+            font-size: 1rem;
+        }
+    }
+    .btn {
+        margin-bottom: 2rem;
+    }
+}
+
+.btn-wrapper {
+    display: flex;
+    align-items:  center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .btn {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .btn-block {
+        max-width: 18rem;
+    }
+}
+
+//Responsive
+
+@include mq(lg) {
+    .btn-wrapper {
+        .btn {
+            margin: 1.4rem 0;
+            &:not(:last-child) {
+                margin-right: 2rem;
+            }
+        }
+    }
+}
+
+@include mq(xs,max) {
+    .btn {
+        font-size: 1.2rem;
+    }
+}

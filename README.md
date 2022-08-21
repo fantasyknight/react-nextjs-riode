@@ -1,2 +1,1 @@
-# react-nextjs-riode
-MERN stack eCommerce template
+# riode-react-nextjs-vercel

@@ -1,0 +1,312 @@
+/* -------------------------------------------
+    Grid
+---------------------------------------------- */
+@use 'sass:math';
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -#{get(base, _gutter-md)};
+    margin-right: -#{get(base, _gutter-md)};
+    
+    > * {
+        position: relative;
+        width: 100%;
+        padding-right: #{get(base, _gutter-md)};
+        padding-left: #{get(base, _gutter-md)};
+    }    
+}
+.gutter-lg {
+    margin-left: -#{get(base, _gutter-lg)};
+    margin-right: -#{get(base, _gutter-lg)};
+    > * {
+        padding-right: #{get(base, _gutter-lg)};
+        padding-left: #{get(base, _gutter-lg)};
+    }
+}
+.gutter-sm {
+    margin-left: -#{get(base, _gutter-sm)};
+    margin-right: -#{get(base, _gutter-sm)};
+    > * {
+        padding-right: #{get(base, _gutter-sm)};
+        padding-left: #{get(base, _gutter-sm)};
+    }
+}
+.gutter-xs {
+    margin-left: -#{get(base, _gutter-xs)};
+    margin-right: -#{get(base, _gutter-xs)};
+    > * {
+        padding-right: #{get(base, _gutter-xs)};
+        padding-left: #{get(base, _gutter-xs)};
+    }
+}
+.gutter-no {
+    margin-left: 0;
+    margin-right: 0;
+    > * {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+@for $i from 1 through 8 {
+    .cols-#{$i} > * { max-width: #{ math.div(round(math.div(100%, $i) * 10000), 10000) }; flex: 0 0 #{ math.div(round(math.div(100%, $i) * 10000), 10000) }; }
+}
+
+@include mq(xs) {
+    @for $i from 1 through 8 {
+        .cols-xs-#{$i} > * { max-width: #{ math.div(round(math.div(100%, $i) * 10000), 10000) }; flex: 0 0 #{ math.div(round(math.div(100%, $i) * 10000), 10000) }; }
+    }
+}
+
+@include mq(sm) {
+    @for $i from 1 through 8 {
+        .cols-sm-#{$i} > * { max-width: #{ math.div(round(math.div(100%, $i) * 10000), 10000) }; flex: 0 0 #{ math.div(round(math.div(100%, $i) * 10000), 10000) }; }
+    }
+}
+
+@include mq(md) {
+    @for $i from 1 through 8 {
+        .cols-md-#{$i} > * { max-width: #{ math.div(round(math.div(100%, $i) * 10000), 10000) }; flex: 0 0 #{ math.div(round(math.div(100%, $i) * 10000), 10000) }; }
+    }
+}
+
+@include mq(lg) {
+    @for $i from 1 through 8 {
+        .cols-lg-#{$i} > * { max-width: #{ math.div(round(math.div(100%, $i) * 10000), 10000) }; flex: 0 0 #{ math.div(round(math.div(100%, $i) * 10000), 10000) }; }
+    }
+}
+
+@include mq(xl) {
+    @for $i from 1 through 8 {
+        .cols-xl-#{$i} > * { max-width: #{ math.div(round(math.div(100%, $i) * 10000), 10000) }; flex: 0 0 #{ math.div(round(math.div(100%, $i) * 10000), 10000) }; }
+    }
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} { max-width: #{ math.div(round(math.div(100%, 12) * $i * 10000), 10000) }; flex: 0 0 #{ math.div(round(math.div(100%, 12) * $i * 10000), 10000) }; }
+}
+
+@include mq(xs) {
+    @for $i from 1 through 12 {
+        .col-xs-#{$i} { max-width: #{ math.div(round(math.div(100%, 12) * $i * 10000), 10000) }; flex: 0 0 #{ math.div(round(math.div(100%, 12) * $i * 10000), 10000) }; }
+    }
+}
+
+@include mq(sm) {
+    @for $i from 1 through 12 {
+        .col-sm-#{$i} { max-width: #{ math.div(round(math.div(100%, 12) * $i * 10000), 10000) }; flex: 0 0 #{ math.div(round(math.div(100%, 12) * $i * 10000), 10000) }; }
+    }
+}
+
+@include mq(md) {
+    @for $i from 1 through 12 {
+        .col-md-#{$i} { max-width: #{ math.div(round(math.div(100%, 12) * $i * 10000), 10000) }; flex: 0 0 #{ math.div(round(math.div(100%, 12) * $i * 10000), 10000) }; }
+    }
+}
+
+@include mq(lg) {
+    @for $i from 1 through 12 {
+        .col-lg-#{$i} { max-width: #{ math.div(round(math.div(100%, 12) * $i * 10000), 10000) }; flex: 0 0 #{ math.div(round(math.div(100%, 12) * $i * 10000), 10000) }; }
+    }
+}
+
+@include mq(xl) {
+    @for $i from 1 through 12 {
+        .col-xl-#{$i} { max-width: #{ math.div(round(math.div(100%, 12) * $i * 10000), 10000) }; flex: 0 0 #{ math.div(round(math.div(100%, 12) * $i * 10000), 10000) }; }
+    }
+}
+
+@include mq(xxl) {
+    .col-xxl-10 {
+        flex: 0 0 83.3333%;
+        max-width: 83.3333%;
+    }
+    .col-xxl-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .col-xxl-2 {
+        flex: 0 0 16.6666%;
+        max-width: 16.6666%;
+    }
+}
+
+@include mq(xl) {
+    .col-xl-5col {
+        position: relative;
+        flex: 0 0 20%;
+        max-width: 20%;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .col-xl-5col2 {
+        position: relative;
+        flex: 0 0 40%;
+        max-width: 40%;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .col-xl-5col4 {
+        position: relative;
+        flex: 0 0 80%;
+        max-width: 80%;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+
+.order-first {
+    order: -1;
+}
+.order-last {
+    order: 9;
+}
+
+@include mq(sm) {
+    .order-sm-auto {
+        order: 0;
+    }
+    .order-sm-first {
+        order: -1;
+    } 
+    .order-sm-last {
+        order: 9;
+    }
+}
+@include mq(md) {
+    .order-md-auto {
+        order: 0;
+    }
+    .order-md-first {
+        order: -1;
+    }
+    .order-md-last {
+        order: 9;
+    }
+}
+@include mq(lg) {
+    .order-lg-auto {
+        order: 0;
+    } 
+    .order-lg-first {
+        order: -1;
+    }
+    .order-lg-last {
+        order: 9;
+    }
+}
+.grid {
+    margin: -1rem;
+    .banner,
+    .category,
+    .category > a,
+    figure,
+    .banner img,
+    .category img { 
+        height: 100%; 
+    }
+    img {
+        object-fit: cover;
+    }
+    .grid-item {
+        padding: 1rem;
+        transform: translate3d(0,0,0);
+    }
+    &.gutter-sm {
+        margin: -.5rem;
+        .grid-item {
+            padding: .5rem;
+        }
+    }
+    &.gutter-no {
+        margin: 0;
+        .grid-item {
+            padding: 0;
+        }
+    }
+    &::after {
+        // content: "";
+        display: block;
+        clear: both;
+    }
+    &.grid-float {
+        display: block !important;
+        .grid-item {
+            float: left;
+        }
+    }
+}
+
+
+// Split Line
+$border-right-color: #ebebeb !default;
+$border-bottom-color: #f4f4f4 !default;
+
+.split-line> * {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid $border-right-color;
+    &::after {
+        content: '';
+        display: block;
+        width: 1px;
+        height: calc(100% - 3rem);
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: $border-right-color;
+    }
+}
+#{split-line-nthclasses()} {
+    &::after { content: none; }
+}
+@include mq('sm') {
+    #{split-line-classes( 'sm-' )} {
+        &::after {
+            content: ''
+        }
+    }
+    #{split-line-nthclasses( 'sm-' )} {
+        &::after { content: none; }
+    }
+}
+    
+@include mq('md') {
+    #{split-line-classes( 'md-' )} {
+        &::after {
+            content: '';
+        }
+    }
+    #{split-line-nthclasses( 'md-' )} {
+        &::after { content: none; }
+    }
+}
+
+@include mq('lg') {
+    #{split-line-classes( 'lg-' )} {
+        &::after {
+            content: '';
+        }
+    }
+    #{split-line-nthclasses( 'lg-' )} {
+        &::after { content: none; }
+    }
+}
+
+@include mq('xl') {
+    #{split-line-classes( 'xl-' )},
+    .split-line>.col-xl-5col:nth-child(n),
+    .split-line>.col-xl-7col:nth-child(n),
+    .split-line>.col-xl-8col:nth-child(n) {
+        &::after {
+            content: '';
+        }
+    }
+    #{split-line-nthclasses( 'xl-' )},
+    .split-line>.col-xl-5col:nth-child(5n),
+    .split-line>.col-xl-7col:nth-child(7n),
+    .split-line>.col-xl-8col:nth-child(8n) {
+        &::after { content: none; }
+    }
+}

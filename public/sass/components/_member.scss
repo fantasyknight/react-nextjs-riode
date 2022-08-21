@@ -1,0 +1,30 @@
+/* -------------------------------------------
+    Member
+---------------------------------------------- */
+
+// Member
+.member {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    img {
+        display: block;
+        width: 100%;
+    }
+    figure {
+        position: relative;
+        margin-bottom: 1.5rem
+    }
+}
+.member-name,
+.member-job {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    margin-bottom: 0;
+}
+.member-job {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: inherit;
+    text-transform: none;
+}

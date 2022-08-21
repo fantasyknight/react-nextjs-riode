@@ -1,0 +1,105 @@
+/* -------------------------------------------
+    Element Category Page
+---------------------------------------------- */
+
+// section {
+//     margin-bottom: 6.8rem;
+// }
+.default-section {
+    margin-top: 8.8rem;
+}
+.masonry-section {
+    .height-x1 {
+        height: 21.5rem;
+    }
+    .height-x2 {
+        height: 43rem;
+    }
+    .category-banner {
+        height: 100%;
+        .category-media,
+        > a {
+            display: block;
+            height: 100%;
+        }
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+.badge-section {
+    .height-x1 {
+        height: 30rem;
+    }
+    .height-x2 {
+        height: 60rem;
+    }
+    .category-badge {
+        overflow: hidden;
+        height: 100%;
+        .category-media,
+        > a {
+            display: block;
+            height: 100%;
+        }
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+@include mq(md, max) {
+    section {
+        &.masonry-section,
+        &.badge-section {
+            .height-x1 {
+                height: 18rem;
+            }
+            .height-x2 {
+                height: 36rem;
+            }
+        }
+    }
+}
+
+//IE10 and IE11
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .badge-section {
+        .category-badge {
+            img {
+                height: 100%;
+                width: auto;
+            }
+        }
+    }
+    .masonry-section {
+        .category-banner {
+            img {
+                height: 100%;
+                width: auto;
+            }
+        }
+    }
+    
+    @media ( max-width: 767px ) {
+        .badge-section {
+            .category-badge {
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+        .masonry-section {
+            .category-banner {
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}

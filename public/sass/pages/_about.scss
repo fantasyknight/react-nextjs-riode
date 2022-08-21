@@ -1,0 +1,97 @@
+/* -------------------------------------------
+    About Page
+---------------------------------------------- */
+
+.about-us {
+    .breadcrumb {
+        padding: 1.2rem 0 1.1rem;
+    }
+    .page-header { height: 30.1rem;}
+    .page-subtitle { margin: .5rem 0 .6rem; }
+    .page-title {
+        margin-bottom: 1.3rem;
+        font-size: 5rem;
+        letter-spacing: -.042em;
+    }
+    .page-desc {
+        font-weight: 300;
+        line-height: 1.6;
+        letter-spacing: .007em;
+    }
+
+    .counter {
+        padding: 4.5rem 1rem 4.2rem;
+        box-shadow: 0px 5px 40px 0px rgba(0, 0, 0, 0.05);
+        p { line-height: 1.72; }
+    }
+
+    .section-title { letter-spacing: -.06em; }
+
+    .store-section {
+        .banner-radius { border-radius: .3rem; }
+    }
+
+    .customer-section, .store-section { margin-bottom: 2.4rem; }
+}
+
+.about-section { 
+    margin: .1rem 0 3.1rem;
+    .section-subtitle { margin-bottom: .2rem; }
+
+    .section-title { margin-bottom: 2.2rem; }
+
+    .section-desc { 
+        margin-bottom: 8px; 
+        line-height: 1.6;
+    }
+}
+
+.customer-section, .store-section {
+    .section-subtitle { margin-bottom: .7rem; }
+    .section-title { margin-bottom: 1.9rem; }
+    .section-desc { 
+        margin-bottom: 4.2rem;
+        letter-spacing: -.036em;
+        line-height: 1.75;
+    }
+    .btn { 
+        margin-bottom: .7rem; 
+        i { font-size: 2.1rem; }
+    }
+}
+
+
+
+.brand-section {
+    .owl-stage-outer {
+        padding: 3rem 0;
+        margin: -3rem 0;
+    }
+}
+
+.brand-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 14.2rem;
+    object-fit: contain;
+    box-shadow: 0 5px 30px 0 rgba(0,0,0,0.05);
+}
+
+@include mq(lg) {
+   .about-section .section-desc { max-width: 28rem; }
+}
+@include mq(md) {
+    .about-us .store-section .row > div:first-child { padding-left: 6rem; }
+}
+@include mq(md, max) {
+    .customer-section, .store-section {
+        img { width: 100%; }
+    } 
+    .order-md-first {
+        order: 1; 
+    }    
+}
+@include mq(sm, max) {
+    .section-title { font-size: 2.5rem; }
+}

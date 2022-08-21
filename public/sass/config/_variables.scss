@@ -1,0 +1,42 @@
+/* -------------------------------------------
+	Variables 
+------------------------------------------- */
+
+// 1. Colors
+$primary-color: #26c !default;
+$primary-color-dark:  #222 !default;
+$secondary-color: #d26e4b !default;
+$alert-color: #b10001 !default; 
+$success-color: #a8c26e !default;
+$body-color: #666 !default;
+$dark-color: #222 !default;
+$light-color: #ccc !default;
+$grey-color: #999 !default;
+$border-color: #e1e1e1 !default;
+$border-color-light: #eee !default;
+$white-color: #fff !default;
+
+// 2. Font-families
+$alt-font-family: sans-serif !default;
+$second-font-family: Poppins, $alt-font-family !default;
+$font-family: Poppins, $alt-font-family !default;
+$third-font-family: 'Open Sans', $alt-font-family !default;
+
+// 3. Breakpoints
+$breakpoints: (xs: 480px, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1600px, xlst: 1920px);
+$max-breakpoints: (xs: 479px, sm: 575px, md: 767px, lg: 991px, xl: 1199px, xxl: 1599px);
+
+// 4. Link Colors
+$social-facebook: #3b5998;
+$social-twitter: #1da1f2;
+$social-linkedin: #0073b2;
+$social-email: #dd4b39;
+$social-google: #dd4b39;
+$social-pinterest: #bd081c;
+$social-reddit: #ff4107;
+$social-tumblr: #304e6c;
+$social-vk: #6383a8;
+$social-whatsapp: #3c8a38;
+$social-xing: #1a7576;
+$social-instagram: #7c4a3a;
+$social-paypal: #1a7576;

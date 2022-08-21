@@ -1,0 +1,24 @@
+.shop-input-range.noUi-target {
+    margin: 4px 16px 1.6rem 9px;
+
+    .input-range {
+        height: 0;
+    }
+
+    .input-range__track--active {
+        margin-top: 1px;
+        background-color: #999;
+    }
+
+    .input-range__slider {
+        top: -0.3rem;
+        width: 1.2rem;
+        height: 1.7rem;
+        background: #444;
+        border-radius: 3px;
+    }
+
+    .input-range__label-container {
+        display: none;
+    }
+}

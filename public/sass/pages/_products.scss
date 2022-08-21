@@ -1,0 +1,19 @@
+/* -------------------------------------------
+    Element Product Page
+---------------------------------------------- */
+
+.product-wrapper {
+    &.row [class*='col-'] {
+        margin-bottom: 2rem;
+    }
+}
+
+.card-body ul { 
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.widget .owl-nav-top .owl-nav i {
+    padding-left: 0;
+    padding-right: 0;
+}

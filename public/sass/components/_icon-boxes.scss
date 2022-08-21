@@ -1,0 +1,146 @@
+/* -------------------------------------------
+    Icon Box
+---------------------------------------------- */
+
+.icon-box {
+    .icon-box-title {
+        margin: 0 0 .7rem;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        letter-spacing: -.025em;
+        line-height: 1.6;
+    }
+    p {
+        margin: 0;
+        font-size: 1.4rem;
+        line-height: 1.72;
+        letter-spacing: 0;
+        color: #666;
+    }
+    i::before {
+        margin: 0;  
+    }
+
+    .icon-box-content {
+        text-align: center;
+    }
+}
+
+.icon-box-icon {
+    display: inline-block;
+    margin-bottom: 2.6rem;
+    font: {
+        size: 3.4rem;
+        weight: 600;
+    }
+    line-height: 0;
+    color: #222;
+
+    svg {
+        height: 3.4rem;
+        width: 4.8rem;
+    }
+}
+
+.icon-box-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .icon-box-content {
+        text-align: left;
+    }
+    .icon-box-icon {    
+        margin-right: 1.5rem;
+        margin-bottom: 0;
+    }
+    .icon-box-title {
+        margin: 0;
+    }
+}
+
+.icon-border {
+    .icon-box-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 5.2rem;  
+        height: 5.2rem;
+        border-radius: 50%;
+        border: 1px solid #222;
+        font-size: 2.5rem;
+    }
+    svg {
+        height: 2.4rem;
+    }
+}
+
+
+.icon-inversed {
+    .icon-box-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 5rem;  
+        height: 5rem;
+        border-radius: 50%;
+        background-color: $primary-color;
+        color: #fff;
+        font-size: 2.5rem;
+    }
+    svg {
+        height: 2.4rem;
+        fill: white;
+    }
+}
+
+.icon-solid {
+    .icon-box-icon {
+        font-size: 4.8rem;
+        color: $primary-color;
+    }
+    svg {
+        width: 5.4rem;
+        height: 5.4rem;
+        fill: $primary-color;
+    }
+
+    &.icon-box-side {
+        align-items: flex-start;
+        svg {
+            width: 4.8rem;
+            height: 4.8rem;
+        }
+    }
+}
+
+.icon-box-tiny {
+    .icon-box-icon {
+
+        margin: 0 1rem 0 0; 
+        font-size: 2.8rem;
+    }
+    svg {
+         height: 2.8rem;
+         width: 2.8rem;
+    }
+    .icon-box-title {
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@include mq(lg, max) {
+    .icon-box-side {
+        flex-direction: column;
+        .icon-box-icon {
+            display: inline-block;
+            margin: 0 0 2rem 0;
+            padding: 2rem;
+        }
+        .icon-box-content {
+            text-align: center;
+        }
+    }
+}

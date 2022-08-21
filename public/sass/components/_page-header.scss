@@ -1,0 +1,135 @@
+/* -------------------------------------------
+    Page Header
+        - Page Subtitle
+        - Page Title
+        - Breadcrumb
+---------------------------------------------- */
+
+$page-header-background: #C8C3BF !default;
+
+// Page Subtitle (new)
+.page-subtitle {
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+// Page title
+.page-title {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: 4rem;
+    line-height: 1.125;
+    color: #222;
+    & + .breadcrumb {
+        padding: 1em 0;
+    }
+}
+
+// Breadcrumb
+.breadcrumb-nav {
+    .breadcrumb {
+        padding: 1.4rem 0;
+        li:not(:last-child)::after {
+            margin-left: .8rem;
+            opacity: .5;
+        }
+    }
+}
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: #666;
+    font-family: $font-family;
+    font-size: 1.4rem;
+    a {
+        color: inherit;
+        &:hover {
+            color: #222;
+        }
+    }
+    li {
+        &:not(:last-child) a {
+            color: #999;
+            transition: color .3s;
+        }
+        &:hover {
+            &:not(:last-child) a {
+                color: #222;
+            }
+        }
+    }
+    .delimiter {
+        margin: 0 .7em;
+        font-size: 1.19rem;
+        opacity: .5;
+    }
+    li:not(:last-child){
+        // padding-right: .8rem;
+        &::after {
+            content: '\f105';
+            position: relative;
+            margin: 0 .6em;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Font Awesome 5 Free';
+            color: $grey-color;
+        }
+    }
+    li:last-child {
+        color: #222;
+    }
+}
+
+.breadcrumb-sm {
+    padding: 1.1rem 0;
+    color: inherit;
+    li:last-child {
+        color: inherit;
+    }
+}
+
+// Page Header
+.page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    background-color: $page-header-background;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #222;
+
+    .breadcrumb {
+        justify-content: center;
+        li:not(:last-child)::after {
+            content: none;
+        }
+    }
+    > .page-subtitle,
+    > .page-title,
+    > .breadcrumb li,
+    > .breadcrumb li a {
+        color: #fff;
+    }
+    > .breadcrumb li:not(:last-child) a {
+        opacity: .5;
+        transition: opacity .3s;
+    }
+    > .breadcrumb li:hover {
+        a {
+            color: #fff;
+            opacity: 1;
+        }
+    }
+}
+
+@include mq( md, max ) {
+    .page-title {
+        font-size: 3.6rem;
+    }
+} 

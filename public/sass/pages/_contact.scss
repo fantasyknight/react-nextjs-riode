@@ -1,0 +1,59 @@
+/* -------------------------------------------
+    Contact Page
+---------------------------------------------- */
+
+.contact-us {
+    .breadcrumb { 
+        padding: 1.2rem 0 1.1rem; 
+        li:last-child {
+            color: $body-color;
+        }
+        li:not(:last-child) {
+            a, &::after {
+                opacity: .7;
+            }
+        } 
+    }
+    .page-header { height: 30.2rem; }
+    .page-title { font-size: 5rem; }
+    .grey-section { background-color: #f7f7f9; }
+    .store-section .title { font-size: 3rem; }
+}
+
+.contact-us .grey-section { 
+    padding: 2.5rem 3.2rem 1.4rem; 
+    h4 {
+        font-size: 2rem;
+        line-height: 1.1; 
+    }
+    p { 
+        margin-bottom: 3.2rem;
+        line-height: 1.72; 
+    }
+}
+
+.contact-section {
+    form {
+        h4 { margin-bottom: .3rem; }
+        p {
+            margin-bottom: 2.4rem;
+            font-size: 1.3rem;
+        }
+    }
+    .form-control {
+        border-radius: .3rem;
+        &::placeholder {
+            color: #999;
+        }
+    }
+    textarea {
+        min-height: 15rem;
+        padding: 1rem 2rem;
+    }
+    .btn i {
+        font-size: 1.6rem;
+        margin-left: 1rem;
+        margin-bottom: .2rem;
+        &::before { font-weight: 600; }
+    }
+}

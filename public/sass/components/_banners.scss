@@ -1,0 +1,141 @@
+/* -------------------------------------------
+    Banner
+        - Default
+        - Video Banner
+        - Hover Effect - Button Hide
+---------------------------------------------- */
+
+// Default
+.banner {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-size: 1rem;
+    figure img {
+		display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    &.inner-banner {
+        &::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            top: 1rem;
+            bottom: 1rem;
+            border: 2px solid rgba(225,225,225,0.3);
+            z-index: 1;
+        }
+        .banner-content {
+            z-index: 2;
+        }
+    }
+    .banner-content {
+        position: relative;
+    }
+}
+.banner-radius { 
+    border-radius: 1rem; 
+    overflow: hidden;
+}
+.banner-subtitle {
+    letter-spacing: -.025em;
+    line-height: 1;
+}
+.banner-title,
+.banner-price-info {
+    line-height: 1;
+}
+.banner-fixed {
+
+    > .container,
+    > .container-fluid,
+    > .banner-content {
+        position: absolute;
+        z-index: 1;
+    }
+
+    > .container,
+    > .container-fluid {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    &.content-middle .banner-content {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &.content-center {
+        .banner-content {
+            text-align: center;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        &.content-middle .banner-content {
+            transform: translate( -50%, -50% );
+        }
+    }   
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .intro-slider {
+        .banner img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+// Video Banner
+.video-banner {
+    position: relative;
+    .btn-play {
+        display: inline-block;
+        line-height: 49px;
+        width: 51px;
+        height: 51px;
+        font-size: 22px;
+        border-radius: 50%;
+        border: 1px solid;
+        transition: background-color .3s, border-color .3s;
+        i {
+            margin-left: 4px;
+        }
+        &:hover {
+            background-color: $primary-color;
+            border-color: $primary-color;
+        }
+    }
+}
+
+// Hover Effect - Button Hide
+.banner-button-hide {
+    .banner-content {
+        transition: padding .3s;
+    }
+    .btn {
+        position: absolute;
+        bottom: 0;
+        transform: translateX(-50%);
+        left: 50%;
+        transition: .3s;
+    }
+    &:not(:hover) {
+        .btn {
+            margin: 0;
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+    &:hover {
+        .banner-content {
+            padding-bottom: 6.2rem;
+        }
+    }
+}
+

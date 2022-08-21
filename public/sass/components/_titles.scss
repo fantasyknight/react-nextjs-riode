@@ -1,0 +1,233 @@
+/* -------------------------------------------
+   Titles
+        - Default
+        - Simple
+        - Line
+        - Underline
+        - Icon
+        - Link
+---------------------------------------------- */
+
+// Variables
+@include set-default(
+	(
+		base: (
+            title: (
+                margin-bottom: 2.6rem,
+                text-transform: capitalize,
+                font-size: 2.4rem,
+                font-weight: 700,
+                line-height: 1,
+                letter-spacing: -.0125em,
+                color: #222,
+                desc: (
+                    margin-bottom: 2.3rem,
+                    text-transform: false,
+                    font-family: false,
+                    font-size: 1.4rem,
+                    font-weight: false,
+                    line-height: 1.71,
+                    letter-spacing: false,
+                    color: #999,
+                ),
+                border: (
+                    color: $border-color,
+                    _active-color: $primary-color,
+                    _height: 2px,
+                    line-height: 2.28,
+                ),
+            ),
+            wrapper: (
+                title: (
+                    margin-bottom: .5rem
+                )
+            )
+        )
+    )
+);
+
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    @include print_css( base, title );
+    &.title-center {
+        justify-content: center;
+    }
+}
+
+//Title Line
+.title-line {
+    &::after {
+        flex: 1;
+        margin-left: 3rem;
+        content: '';
+        @include css( height, base, title, border, _height );
+        @include css( background-color, base, title, border, color );
+    }
+    &.title-underline::after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+}
+
+@include mq(xs, max) {
+    .title-line {
+        &::before { margin-right: 1.5rem; }
+        &::after { margin-left: 1.5rem; }
+    }
+}
+
+//Title Underline
+.title-underline {
+    display: block;
+    //position: relative; 
+    // line-height: 1;
+    text-align: left;
+    &:after {
+        margin: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+    span {
+        display: inline-block;
+        position: relative;
+        z-index: 2;
+        @include css( line-height, base, title, border, line-height );
+        &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 2px;
+            bottom: 0; 
+            @include css( background-color, base, title, border, _active-color );
+        }
+    }
+}
+
+.title-wrapper {
+    .title {
+        @include css( margin-bottom, base, wrapper, title, margin-bottom );
+    }
+    p {
+        @include print_css( base, title, desc );
+    }
+}
+
+// Simple
+.title-simple {
+    display: block;
+
+    &::before,
+    &::after {
+        content: none;
+    }
+}
+
+// Line
+.title-line {
+    &:before {
+        content: none;
+    }
+}
+
+//Small
+.title-sm {
+    font-size: 2rem;
+}
+
+
+// Icon
+.title-icon {
+    flex-direction: column;
+    > i {
+        margin-top: 1rem;
+        font-size:  1.8rem;
+        color: $primary-color;
+    }
+    &::before,
+    &::after {
+        content: none;
+    }
+} 
+
+.title-white {
+    &::before,
+    &::after {
+        background-color: #fff;
+        opacity: .1;
+    }
+    color: #fff;
+
+    > .title {
+        &::before,
+        &::after {
+            background-color: #fff;
+            opacity: .1;
+        }
+        color: #fff;
+    }
+
+    > p {
+        color: #fff;
+        opacity: .5;
+    }
+}
+
+// Link
+.title-link {
+    &::before,
+    &::after {
+        content: none;
+    }
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid $border-color;
+    a {
+        color: #444;
+        font-size: 1.2rem;
+        &:hover {
+            color: $primary-color;
+        }
+    }
+    i { font-size: 1rem }
+}
+
+.with-link {
+    display: flex;
+    justify-content: space-between;
+    @include css( line-height, base, title, line-height );
+    &::after {
+        @include css( height, base, title, border, width );
+        @include css( background-color, base, title, border, color );
+    }
+    a {
+        display: inline-flex;
+        align-items: center;
+        margin-left: auto;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 2.05em;
+        text-transform: uppercase;
+        letter-spacing: -0.325px;
+        color: #222222;
+        transition: color .3s;
+        &:hover {
+            color: $primary-color;
+        }
+    }
+    i {
+        margin-left: 0.9rem;
+        font-size: 1.9rem;
+        line-height: 0;
+    }
+}

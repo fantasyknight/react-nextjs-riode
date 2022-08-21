@@ -1,0 +1,200 @@
+/* Demo 1 */
+
+/* Intro Slider */
+.intro-slider .banner {
+    img, video {
+        height: 63rem;
+        object-fit: cover;
+    }
+
+    figure { 
+        height: 63rem; 
+        overflow: hidden;
+    }
+
+    .btn { 
+        font-size: 1.4em; 
+        i { margin-left: .7rem;}
+    }
+}
+
+.intro-slide1 {    
+    &.banner-fixed > .container {
+        z-index: 15;
+    }
+    .banner-content { 
+        left: 2.1%;  
+        margin-top: -.5rem;
+    }
+    .banner-subtitle { 
+        margin-bottom: 1.3rem;
+        font-family: 'Segoe Script';
+        font-size: 3em; 
+    }
+    .label-star { margin-left: 2.5rem; }
+    .banner-title { 
+        margin-left: -2px; 
+        font-size: 6.4em; 
+        margin-bottom: 0; 
+    }
+    h3 { 
+        margin: -0.7rem 0 0.6rem;
+        font-size: 5.6em; 
+    }
+    p { 
+        font-weight: 500;
+        font-size: 1.6rem;
+        line-height: 1.4; 
+    }
+}
+
+.intro-slide2 {
+    img { object-position: 80%; }
+    .banner-content { 
+        max-width: 38rem; 
+        right: 5.5%; 
+        margin-top: -0.3rem;
+    }
+    .banner-subtitle { 
+        font-size: 2.4em; 
+        line-height: 1.1;
+    }
+    .banner-subtitle strong { font-size: 1.67em; line-height: .98; }
+    .banner-title { font-size: 10em; margin-right: -2px; }
+    p { font-size: 1.8em; line-height: 1.33; }
+}
+
+.intro-slide3 {
+    .banner-subtitle { font-size: 3em; }
+    .banner-title { font-size: 6em; }
+
+    p {
+        font-weight: 300; 
+        opacity: .8;
+        font-size: 1.8em;
+        line-height: 1.4;
+    }
+
+    &.video-banner {
+        video {
+            display: block;
+            width: 100%;
+        }
+    }
+    figure::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(43, 151, 223, 0.3);
+        z-index: 1;
+    }
+}
+
+/* Icon Boxes */
+.intro-section .service-list {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.07);
+    .icon-box { padding: 3.2rem 0 3.5rem;}
+
+    .icon-box-title { margin-bottom: .3rem; }
+
+    .icon-box-icon { font-size: 3.7rem; }
+
+    .icon-box1 i { font-size: 4.6rem; }
+
+    .owl-item:not(:last-child) .icon-box::after {
+        content: '';
+        height: 37px;
+        width: 1px;
+        background: $border-color;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .owl-stage-outer { margin: 0 .1rem; }
+    .owl-stage { margin: 0 -.1rem; }
+}
+
+/* Banner Group */
+.banner-divider {
+    width: 35px;
+    height: 4px;
+    margin: 0 0 1.6rem 0;
+    background-color: #fff;
+}
+
+.owl-theme.owl-nav-full:not(.product-gallery-carousel) .owl-nav {
+    .owl-prev, .owl-next {
+        width: 2.4rem;
+        font-size: 2rem;
+    }
+}
+
+/* Brand Carousel */
+.brand-carousel { 
+    padding: 2rem 0; 
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+}
+
+/* Product widget wrapper */
+.product-widget-wrapper {
+    .widget-title {
+        padding: 3rem 0 .5rem;
+        font-size: 2rem;
+        letter-spacing: -.005em;
+        color: #444;
+        text-transform: none;
+    }
+    .product-name { margin-bottom: .3rem; }
+    .product-price { font-size: 1.6rem; }
+}
+
+/* Footer */
+// .footer-bottom {
+//     .footer-center, .footer-left, .footer-right { margin-bottom: 2rem; }
+// }
+/* Responsive */
+@include mq(1366px, max) {
+    .intro-slider figure {
+        height: 45rem;
+    }
+
+}
+@include mq(lg, max) {
+    .service-list .owl-item:not(:last-child) .icon-box::after { content: none; }
+}
+@include mq(sm, max) {
+    .intro-slide1 img { object-position: 53%; }
+    .intro-slide2 img { object-position: 60%; }
+    .banner { font-size: .8rem; }
+
+    .brand-carousel {
+        padding: 0;
+    }
+}
+@include mq(xs, max) {
+    .intro-slide1 {
+        .banner-title { font-size: 5.5em; }
+        .banner-content {
+            width: 100%;
+            left: auto;
+        }
+    } 
+    .service-list .icon-box-icon { margin-right: .7rem; }
+}
+
+/* Animation */
+
+@include mq('lg', 'max') {
+    .video-banner {
+        video {
+            height: 100%;
+            min-height: 55rem;
+        }
+    }
+}

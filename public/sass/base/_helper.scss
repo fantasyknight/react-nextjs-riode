@@ -1,0 +1,253 @@
+/* -------------------------------------------
+    Helper
+---------------------------------------------- */
+// Width
+.w-100 {
+    width: 100% !important;
+}
+// Height
+.h-100 {
+    height: 100% !important;
+}
+// Position
+.p-sticky {
+    position: sticky !important;
+}
+.p-relative {
+    position: relative !important;
+}
+.x-50 {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    &.y-50 {
+        transform: translate( -50%, -50% ) !important;
+    }
+}
+.y-50 {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+// Display
+.d-none {
+    display: none !important;
+}
+.d-block {
+    display: block !important;
+}
+.d-inline-block {
+    display: inline-block !important;
+}
+.d-flex {
+    display: flex !important;
+}
+.d-inline-flex {
+    display: inline-flex !important;
+}
+.justify-content-center {
+    justify-content: center !important;
+}
+.justify-content-start {
+    justify-content: flex-start !important;
+}
+.justify-content-end {
+    justify-content: flex-end !important;
+}
+.justify-content-between {
+    justify-content: space-between !important;
+}
+.align-items-start {
+    align-items: flex-start !important;
+}
+.align-items-center {
+    align-items: center !important;
+}
+.align-items-end {
+    align-items: flex-end !important;
+}
+.flex-column {
+    flex-direction: column !important;
+}
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+.flex-1 {
+    flex: 1 !important;
+}
+.overflow-hidden {
+    overflow: hidden !important;
+}
+@include mq(xl) {
+    .d-xl-none {
+        display: none !important;
+    }
+    .d-xl-block {
+        display: block !important;
+    }
+    .d-xl-flex {
+        display: flex !important;
+    }
+    .d-xl-inline-flex {
+        display: inline-flex !important;
+    }
+}
+@include mq(lg) {
+    .d-lg-none {
+        display: none !important;
+    }
+    .d-lg-block {
+        display: block !important;
+    }
+    .d-lg-flex {
+        display: flex !important;
+    }
+    .d-lg-inline-flex {
+        display: inline-flex !important;
+    }
+}
+@include mq(xl, max) {
+    .d-xl-show {
+        display: none !important;
+    }
+}
+@include mq(lg, max) {
+    .d-lg-show {
+        display: none !important;
+    }
+}
+
+// Font Family
+.font-primary {
+    font-family: $font-family !important;
+}
+.font-secondary {
+    font-family: $second-font-family !important;
+}
+.font-tertiary {
+    font-family: $third-font-family !important;
+}
+
+// Font Weight
+.font-weight-bolder {
+    font-weight: 800 !important;
+}
+
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+.font-weight-semi-bold {
+    font-weight: 600 !important;
+}
+.font-weight-normal {
+    font-weight: 400 !important;
+}
+
+// Text Transform
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+.text-capitalize {
+    text-transform: capitalize !important;
+}
+.text-normal {
+    text-transform: none !important;
+}
+
+// Font Type
+.font-italic {
+    font-style: italic !important;
+}
+.font-normal {
+    font-stretch: normal !important;
+}
+
+// Text Align
+.text-left {
+    text-align: left !important;
+}
+.text-center {
+    text-align: center!important;
+}
+.text-right {
+    text-align: right !important;
+}
+
+// Text Color
+.text-white {
+    color: #fff !important;
+}
+.text-light {
+    color: $light-color !important;
+}
+.text-grey {
+    color: $grey-color !important;
+}
+.text-body {
+    color: $body-color !important;
+}
+.text-dark {
+    color: $dark-color !important;
+}
+.text-black {
+    color: #000 !important;
+}
+.text-primary {
+    color: $primary-color !important;
+}
+.text-secondary {
+    color: $secondary-color !important;
+}
+
+// Letter Spacing
+.ls-md{
+    letter-spacing: -.03em !important;
+}
+.ls-s {
+    letter-spacing: -.01em !important;
+}
+.ls-m {
+    letter-spacing: -.025em !important;
+}
+.ls-l {
+    letter-spacing: -.05em !important;
+}
+.ls-normal {
+    letter-spacing: 0 !important;
+}
+// Line Height
+.lh-2 {
+    line-height: 2 !important;
+}
+.lh-1 {
+    line-height: 1 !important;
+}
+.lh-0 {
+    line-height: 0 !important;
+}
+
+// Background
+.bg-white {
+    background-color: #fff !important;
+}
+.bg-dark {
+    background-color: $dark-color !important;
+}
+.bg-grey {
+    background-color: $grey-color !important;
+}
+.bg-light {
+    background-color: $light-color !important;
+}
+.bg-black {
+    background-color: #000 !important;
+}
+.bg-primary {
+    background-color: $primary-color !important;
+}
+.bg-secondary {
+    background-color: $secondary-color !important; 
+}
+
+// Border
+.border-no {
+    border: none !important;
+}

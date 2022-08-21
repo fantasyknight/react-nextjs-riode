@@ -1,0 +1,20 @@
+.lazy-load-image-background {
+    display: block !important;
+
+    &.lazy-load-image-loaded {
+        display: inline !important;
+    }
+}
+
+.lazy-load-image-background.opacity:not(.lazy-load-image-loaded) {
+    background-color: #f4f4f4;
+
+    img {
+        opacity: 0; 
+    }
+}
+
+.lazy-load-image-background.opacity.lazy-load-image-loaded img {
+    opacity: 1;
+    transition: all .3s;
+}

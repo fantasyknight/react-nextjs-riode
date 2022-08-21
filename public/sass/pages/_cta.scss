@@ -1,0 +1,336 @@
+/* -------------------------------------------
+    Call to Action
+
+        - Simple
+        - 2 Columns
+        - 3 Columns
+        - Expanded Newsletter
+        - Expanded on Background
+---------------------------------------------- */
+
+// Simple
+.cta-simple {
+    position: relative;
+    overflow: hidden;
+    background-color: #edeef0;
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        padding-top: 50%;
+        background: linear-gradient( 135deg, #0088cc 0%, $primary-color 50%, transparent 50.1% );
+    }
+    .banner-content { 
+        position: relative;
+        margin: 1.5rem;
+        padding: 3.4rem 0;
+        z-index: 3;
+    }
+    .banner-header {
+        position: relative;
+        max-width: 29.1%;
+        flex: 0 0 29.1%;
+        text-align: right;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY( -50% );
+            width: .5rem;
+            height: 9rem;
+            background-color: #edeef0;
+        }
+    }
+    .banner-text { flex-grow: 1; }
+    .banner-title {
+        margin-bottom: .2rem;
+        font-size: 3em;
+    }
+    .banner-subtitle {
+        margin-bottom: 0;
+        font-size: 2em;
+    }
+    .banner-text {
+        h4 {
+            font-size: 2em;
+            line-height: 1.3;
+        }
+    }
+    .btn {
+        position: relative;
+        margin-right: 5.2rem;
+        padding: 1.38em 2em;
+        min-width: 18rem;
+        overflow: hidden;
+        background: transparent;
+        transition: opacity .3s;
+        border: 0;
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -100%;
+            width: 200%;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+            background: linear-gradient( 90deg, $primary-color, #0088cc , $primary-color );
+            transition: left .3s;
+        }
+        &:hover {
+            &::before {
+                left: 0;
+            }
+        }
+    }
+}
+// 2 Columns
+.banner-1,
+.banner-2 {
+    img {
+        min-height: 30rem;
+        object-fit: cover;
+    }
+}
+.banner-1 {
+    background-color: #4f4f4f;
+    .banner-title {
+        margin-bottom: 1.1rem;
+        font-size: 4em;
+    }
+    .banner-subtitle { 
+        margin-bottom: 1rem;
+        white-space: nowrap;
+        font-size: 3em;
+    }
+    p {
+        margin-bottom: 2.4rem;
+        font-size: 1.6em;
+        line-height: 1.25;
+    }
+    .btn { padding: .77em 1.12em; }
+}
+.banner-2 {
+    background-color: #2b579a;
+    .banner-content { width: 69%; }
+    .banner-title {
+        font-size: 3em;
+        line-height: 1.06;
+    }
+    p {
+        margin-bottom: 1.6rem; 
+        font-size: 1.6em;
+        line-height: 1.2;
+    }
+    input.form-control {
+        border: none;
+        background-color: rgba( 255, 255, 255, .3 );
+        border-radius: 2rem;
+    }
+    .btn {
+        padding: .77em 1.35em;
+        &:hover,
+        &:active,
+        &:focus {
+            border-color: #fff;
+        }
+    }
+}
+// 3 Columns
+.banner-group {
+    .banner-title {
+        font-size: 3em;
+        line-height: 1.2;
+        letter-spacing: -.02em;
+    }
+    .banner-subtitle {
+        margin-bottom: 1.8rem;
+        font-size: 1.4em;
+        line-height: 1.2;
+        letter-spacing: .01em;
+    }
+    .btn {
+        font-weight: 500;
+        i {
+            margin-left: .8rem;
+            font-size: 1.9rem;
+            vertical-align: middle;
+        }
+    }
+    img {
+        min-height: 22rem;
+        object-fit: cover;
+    }
+}
+.banner-3 {
+    background-color: #ccc;
+    .banner-content { left: 7.8%; }
+}
+.banner-4 {
+    background-color: #ccc;
+    .banner-content {
+        padding: 0 2.9rem;
+        > div { padding-top: .2rem; }
+    }
+    .banner-subtitle {
+        margin-bottom: -0.4rem;
+        letter-spacing: -.0428em;
+        line-height: 1.3;
+        span {
+            font-family: 'Segoe Script', sans-serif;
+            font-size: 1.71em;
+        }
+    }
+    .banner-title {
+        font-size: 5em;
+    }
+    .btn { 
+        padding: 1.5em 2.1em 1.5em 2.1em;
+        font-size: 1.2rem;
+    }
+}
+.banner-5 {
+    background-color: #ccc;
+    .banner-content { right: 10.5%; }
+}
+
+// Expanded Newsletter
+.banner-newsletter {
+    border: 2px solid $primary-color;
+	.banner-content { padding: 1.8rem 0; }
+	.icon-box { justify-content: flex-start; }
+    .icon-box p {
+		line-height: 1.43;
+		letter-spacing: .01em;
+    }
+    .icon-box-icon {
+		margin: 0 2.4rem 0 0;
+        font-size: 4.5rem;
+    }
+    .icon-box-title {
+		font-size: 1.8rem;
+        line-height: .9;
+    }
+    .input-wrapper {
+        height: 4.8rem;
+        .form-control {
+            border: 1px solid #e4e4e4;
+            border-right: 0;
+        }
+        .btn { padding: 1em 2.7em; }
+    }
+}
+// Expanded on Background
+.banner-background {
+    padding: 9.4rem 0 10.3rem;
+    background-color: #6b6b6b;
+    .banner-subtitle {
+        margin-bottom: 1.6rem;
+        font-family: 'Segoe Script', sans-serif;
+        font-size: 3em;
+        line-height: 1.6;
+    }
+    .banner-title {
+        margin-bottom: .7rem;
+        font-size: 5em;
+        letter-spacing: -.025em;
+    }
+    p {
+        margin-bottom: 2.8rem;
+        font-weight: 500;
+        font-size: 1.8em;
+    }
+    .input-wrapper {
+        max-width: 60rem;
+        width: 100%;
+        height: 4.8rem;
+        .form-control {
+            position: relative;
+            flex: 1;
+            padding-left: 2.4rem;
+            border: 1px solid #e7e7e7;
+            border-right: 0;
+            font-size: 1.2rem;
+        }
+        .btn { min-width: 12.3rem; }
+    }
+    .btn { 
+        padding: 1.22em 2.7em;
+        font-weight: 600;
+    }
+}
+.label-star {
+    align-items: center;
+    padding: 9px 7px 5px;
+    border-radius: .3rem;
+    line-height: 1;
+    &::before, &::after {
+        animation: 4s linear 0s infinite rotateStar;
+        content: '\f005';
+        display: inline-block;
+        margin: .5rem .5rem .5rem 1.5rem;
+        vertical-align: middle;
+        font-family: 'Font Awesome 5 Free';
+        font-size: .467em;
+        font-weight: 400;
+    }
+    &::before {
+        margin-left: .5rem;
+        animation-direction: reverse;
+    }
+}
+// Responsive
+@include mq( lg, max ) {
+    .cta-simple {
+        .banner-content { text-align: center; }
+        .banner-header {
+            max-width: 100%;
+            text-align: center;
+            &::after {
+                height: .5rem;
+                width: 80%;
+                top: 100%;
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        .banner-text {
+            max-width: 100%;
+            flex: 0 0 100%;
+        }
+        .btn { margin: 0; }
+    }
+    .banner-2 .banner-content {
+        width: 100%;
+        padding: 0 3rem;
+    }
+	.banner-newsletter .icon-box { justify-content: center; }
+}
+@include mq(md,max) {
+    .banner-4 .banner-content {
+        display: block !important; 
+    }
+}
+@include mq( sm, max ) {
+    .banner { font-size: .9rem; }
+    .banner-group .banner { font-size: 1.2rem; }
+    .banner-newsletter {
+        .icon-box {
+            display: block;
+            text-align: center;
+        }
+        .icon-box-icon {
+            margin-right: 0;
+            margin-bottom: 1rem;
+        }
+        .icon-box-content { text-align: center; }
+	}
+}
+@include mq( xs, max ) {
+    .banner-group .banner { font-size: 1rem; }
+}

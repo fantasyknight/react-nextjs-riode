@@ -1,0 +1,217 @@
+/* -------------------------------------------
+    Overlay
+---------------------------------------------- */
+
+.overlay,
+.overlay-visible {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    transition: padding .3s ease-out, background-color .3s, opacity .3s;
+}
+
+.overlay {
+    padding-top: 10rem;
+    background: rgba(0,0,0,.3);
+    opacity: 0;
+    a > & {
+        cursor: pointer;
+    }
+    figure:hover & {
+        padding-top: 0;
+        opacity: 1;
+    }
+    &.social-links {
+        flex-direction: row;
+    }
+    .social-links {
+        justify-content: center;
+    }
+    a:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
+    a.social-link {
+        border-color: #fff;
+    }
+    .social-link:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+.overlay-visible {
+    figure:hover & {
+        background: rgba( $primary-color, .9);
+        padding-bottom: 9rem;
+    }
+}
+.overlay-transparent {
+    background: transparent;
+}
+
+// Global Overlays
+.overlay-dark,
+.overlay-light {
+    figure, .banner {
+        position: relative;
+    }
+
+    figure::after,
+    figure > a::after,
+    &.banner::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: $dark-color;
+        opacity: 0;
+        transition: opacity .3s, background .3s, transform .3s;
+    }
+
+    &:hover figure::after,
+    &:hover figure > a::after,
+    &.banner:hover::after {
+        opacity: .1;
+    }
+
+    &.banner-fixed::after,
+    &.post > figure::after {
+        content: none;
+    }
+    &.post > figure > a::after {
+        z-index: 1;
+    }
+}
+
+.overlay-light figure::after,
+.banner.overlay-light::after {
+    background: $light-color;
+}
+
+// Zoom
+.overlay-zoom {
+    overflow: hidden;
+    img {
+        transition: transform .3s;
+    }
+    &:hover {
+        img {
+            transform: scale(1.08);
+        }
+    }
+}
+
+.overlay-effect-one figure:after,.overlay-effect-one figure:before,.overlay-effect-one:after,.overlay-effect-one:before {
+    content: "";
+    position: absolute;
+    opacity: 1
+}
+
+.overlay-effect-one figure:before,.overlay-effect-one:before {
+    background: rgba(255,255,255,0.3);
+    bottom: 0;
+    left: 50%;
+    right: 51%;
+    top: 0
+}
+
+.overlay-effect-one figure:after,.overlay-effect-one:after {
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    top: 50%
+}
+
+.overlay-effect-one:hover:after,.overlay-effect-one:hover:before,.overlay-effect-one:hover figure:after,.overlay-effect-one:hover figure:before {
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: 0.5s linear
+}
+
+.overlay-effect-two,.overlay-effect-two figure,.overlay-effect-three,.overlay-effect-three figure {
+    overflow: hidden;
+    position: relative
+}
+
+.overlay-effect-two figure:after,.overlay-effect-two figure:before,.overlay-effect-two:after,.overlay-effect-two:before {
+    content: "";
+    position: absolute;
+    background: rgba(255,255,255,0.6);
+    height: 100%;
+    left: 0;
+    opacity: 0.4;
+    top: 0;
+    transition: 0.9s;
+    width: 100%
+}
+
+.overlay-effect-two figure:before,.overlay-effect-two:before {
+    transform: translate(105%,0%)
+}
+
+.overlay-effect-two figure:after,.overlay-effect-two:after {
+    transform: translate(-105%,0%)
+}
+
+.overlay-effect-two:hover:after,.overlay-effect-two:hover:before,.overlay-effect-two:hover figure:after,.overlay-effect-two:hover figure:before {
+    opacity: 0;
+    transform: none
+}
+
+.overlay-effect-three figure:before,.overlay-effect-three:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 120%;
+    height: 60px;
+    background: rgba(255,255,255,0.1);
+    transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-150%,0);
+    transition: 0.5s linear;
+    backface-visibility: hidden
+}
+
+.overlay-effect-three:hover:before,.overlay-effect-three:hover figure:before {
+    top: 100%;
+    left: -100%;
+    transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,200%,0)
+}
+
+.overlay-effect-four figure:after,.overlay-effect-four figure:before,.overlay-effect-four:after,.overlay-effect-four:before {
+    content: "";
+    position: absolute;
+    background: rgba(255,255,255,0.1);
+    opacity: 1;
+    transition: 0.5s
+}
+
+.overlay-effect-four figure:before,.overlay-effect-four:before {
+    bottom: 0;
+    left: 50%;
+    right: 51%;
+    top: 0
+}
+
+.overlay-effect-four figure:after,.overlay-effect-four:after {
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    top: 50%
+}
+
+.overlay-effect-four:hover:after,.overlay-effect-four:hover:before,.overlay-effect-four:hover figure:after,.overlay-effect-four:hover figure:before {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.5
+}

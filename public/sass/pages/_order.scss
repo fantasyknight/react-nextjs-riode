@@ -1,0 +1,204 @@
+.order {
+    .title {
+        font-size: 2rem;
+    }
+
+    .order-message {
+        max-width: 34rem;
+        padding: 3rem;
+        box-shadow: 0 5px 20px 0 rgba(0,0,0,0.1);
+        border-radius: 1rem;
+        .icon-box-icon {
+            margin-right: 3.2rem;   
+        }
+        svg {
+            width: 5rem;
+            height: 5rem;
+            stroke: $primary-color;
+        }
+        .icon-box-title {
+            font-size: 1.8rem;
+        }
+    }
+    .order-results {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 4.8rem 0 1.9rem;
+    }
+
+    .overview-item {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+        &:not(:last-child) {
+            margin-right: 3rem;
+            padding-right: 3.1rem;
+            &::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                display: block;
+                transform: translateY(-50%);
+                width: 1px;
+                height: 42px;
+                background: #e1e1e1;
+            }
+        }
+        span {
+            text-transform: uppercase;
+        }
+        strong {
+            color: $dark-color;
+            font-weight: 600;
+            font-size: 2rem;
+        }
+    }
+
+    .btn.btn-back {
+        // padding: .5rem 1rem;
+        font-size: 1.3rem;
+    }
+
+    .summary-subtotal:last-child {
+        border-bottom: none;
+    }
+    
+    .address-info {
+        border-bottom: 1px solid #e1e1e1;   
+
+        p {
+            color: #666;
+            font-family: $font-family;
+            line-height: 2.15;
+        }
+    }
+}
+
+.order-details {
+    border: 1px solid #e1e1e1;
+    border-radius: 3px;
+    padding: .4rem 3rem;
+}
+
+.order-details-table {
+    .product-name {
+        padding: 1.6rem 0 1.8rem;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 1.42;
+        color: #000;
+        white-space: inherit;
+
+        i {
+            font-size: 1rem;
+        }
+        span {
+            font-weight: 700;
+            color: #222;
+        }
+    }
+
+    th > .summary-subtitle {
+        font-size: 1.8rem;
+        font-weight: 600;
+        text-align: left;
+    }
+    .product-price {
+        display: block;
+    }
+
+    .summary-subtotal-price, .product-price {
+        text-align: right;
+    }
+    .summary-subtotal-price { 
+        font-weight: 600; 
+        color: $body-color;
+    }
+
+    .product-price {
+        font-size: 1.4rem;
+        color: #666;
+        font-weight: 400;
+        padding-top: 1.2rem;
+    }
+
+    thead {
+        border-bottom: 1px solid #e1e1e1;
+        .summary-subtitle {
+            font-size: 1.8rem;
+        }
+    }
+
+    tbody tr:first-child {
+        td { 
+            padding-top: 3.2rem;
+
+            &.product-price {
+                padding-top: 2.8rem;
+            }
+        }
+    }
+}
+
+@include mq(md, 'max') {
+    .order {
+        .order-message {
+            font-size: 2rem;
+        }
+        .overview-item {
+            flex-direction: row;
+            width: 100%;
+            align-items: center;
+            &:not(:last-child)::after {
+                content: none;
+            }
+            span {
+                margin-right: 2rem;
+            }
+        }
+    }
+}
+
+@include mq(sm, 'max') {
+    .order {
+        .order-details {
+            padding: 0 2rem;
+        }
+
+        .order-message {
+            font-size: 1.8rem;
+        }
+
+        .overview-item {
+            font-size: 1.6rem;
+        }
+    }
+}
+
+@include mq(xs, 'max') {
+    .order {
+        .order-details {
+            padding: 0 1.5rem;
+        }
+
+        .order-message {
+            font-size: 1.6rem;
+        }
+
+        .overview-item {
+            font-size: 1.4rem;
+        }
+    }
+
+    .step-by .title.title-step { 
+        font-size: 1.8rem;
+
+        &::after {
+            font-size: 1.4rem;
+            top: 50%;
+        }
+    }
+}

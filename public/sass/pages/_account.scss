@@ -1,0 +1,167 @@
+/* -------------------------------------------
+    Account
+---------------------------------------------- */
+
+.account {
+    line-height: 2.15;
+    .title {
+        font-size: 3rem;
+        letter-spacing: -.035em;
+    }
+    p {
+        font-family: $font-family;
+        line-height: 2.15;
+        letter-spacing: -.017em;
+        span {
+            color: #333;
+        }
+        &:first-child {
+            letter-spacing: -.005em;
+        }
+        .link-to-tab {
+            text-decoration: underline;
+        }
+    }
+    .dashboard p {
+        color: #777;
+    }
+    .btn.btn-dark {
+        padding: 0.93em 1.97em;
+    }
+    label {
+        display: block;
+        padding-left: .2rem;
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+        line-height: 1;
+    }
+    .form-control {
+        font-size: 1.3rem;
+        font-family: $font-family;
+        transition: background-color .3s, border-color .3s;
+        color: #999;
+        border-radius: .3rem;
+        &:focus {
+            border-color: $dark-color;
+        }
+    }
+    .nav-tabs {
+        width: auto;
+        border-right: none;
+    }
+    .nav-item {
+        border-bottom: 1px solid #eee;
+        color: #222;
+        a {
+            display: block;
+            padding: 1.7rem .8rem 1.6rem;
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: -.015em;
+            line-height: 1;
+            text-transform: none;
+        }
+        &:hover {
+            .nav-link { color: $primary-color; }
+        }
+        &.show .nav-link,
+        .nav-link.active {
+            color: $primary-color;
+        }
+    }
+    .tab-pane { 
+        padding: .8rem 0 0;
+    }
+    thead {
+        text-align: left;
+        th {
+            padding: 1.5rem 0;
+            background-color: #f4f4f4;
+        }
+    }
+    tbody {
+        td {
+            padding: 1.5rem 1rem 1.5rem 0;
+        }
+        tr:nth-child(2n) td {
+            background-color: #f4f4f4;
+        }
+    }
+    td:first-child {
+        padding-left: 1rem;
+    }
+    .order-total {
+        width: 25.9rem;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: $body-color;
+    }
+
+    fieldset {
+        margin: 7rem 0 2rem;
+        padding: 2rem 2rem 1rem;
+        border: 1px solid #e1e1e1;
+    }
+    legend {
+        color: $dark-color;
+    }
+    .btn {
+        padding: 1em 1.87em;
+    }
+    
+    .order-table {
+        border: 1px solid $border-color-light;
+    }
+
+    .order-action .btn {
+        padding: 0;
+    }
+}
+
+.downloads, .card-address {
+    .btn {
+        padding: 0;
+    }
+} 
+
+.card-address .btn i {
+    font-size: 1.4rem;
+}
+
+
+.order-number {
+    width: 11.4rem;
+    color: #000;
+}
+.order-date {
+    width: 24.8rem;
+    color: #666;
+}
+.order-status {
+    width: 14.7rem;
+    font-size: 1.2rem;
+    color: #222;
+    
+    span {
+        display: inline-block;
+        padding: .1rem .5rem;
+        background-color: $light-color;
+        border-radius: .3rem;
+        line-height: 1.9;
+    }
+}
+
+.card-address {
+    p { margin-bottom: 1rem; }
+}
+@include mq(md, max) {
+    .account {
+        .nav-tabs { width: 100%; }
+        .tab-content { padding-left: 1.5rem; }
+    }
+}
+@include mq(xs, max) {
+    .order-action, .order-table thead th:last-child {
+        display: none;
+    }
+}

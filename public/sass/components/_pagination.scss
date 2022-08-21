@@ -1,0 +1,85 @@
+/* -------------------------------------------
+    Pagination
+---------------------------------------------- */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.4rem;
+    letter-spacing: .01em;
+    justify-content: center;
+    color: #222;
+}
+
+.page-link-prev, .page-link-next {
+    i {
+        font-size: 1.9rem;
+    }
+}
+.page-link-prev i {
+    margin-right: .5rem;
+}
+.page-link-next i {
+    margin-left: .5rem;
+}
+.page-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3rem;
+    height: 4rem;
+    padding: 0 .3rem;
+    line-height: 1;
+    background-color: transparent;
+    border: .1rem solid transparent;
+    transition: border .3s;
+
+    :hover:not(.disabled) > &,
+    .active > & {
+        border-color: #dadada;
+        color: #222;
+    }
+    .disabled > & {
+        color: #aaa;
+    }
+}
+.page-link-next,
+.page-link-prev {
+    min-width: 8rem;
+    padding: 1.2rem;
+}
+.page-item:not(:last-child) {
+    margin-right: .5rem;
+}
+.page-item-dots {
+    white-space: nowrap;
+
+    &::before {
+        content: '...';
+        margin-top: -.9em;
+        margin-right: .5rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+.show-info {
+    margin: 0;
+    color: #222;
+
+    span {
+        margin: 0 .5rem;
+        color: #222;
+    }
+}
+
+// issue: used only 18
+.page-item-total {
+    margin-right: .5rem;
+}
+@include mq(sm) {
+    .page-item-dots,
+    .page-item-total {
+        margin-right: 2rem;
+    }
+}

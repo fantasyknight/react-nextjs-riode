@@ -1,0 +1,158 @@
+
+/* -------------------------------------------
+    Social Links
+        - Default Style
+        - Other Styles
+            - No Border
+            - Inline Style
+---------------------------------------------- */
+
+// Default Style
+.social-links {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.social-link {
+    margin: 2px 8px 2px 0;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    color: inherit;
+    transition: color .4s, border .4s, background .4s;
+    text-align: center;
+    &:last-child { margin-right: 0; }
+
+    i {
+        letter-spacing: -.001em;
+        line-height: 1;
+    }
+    &:hover {
+        background: $primary-color;
+        border-color: $primary-color;
+        color: #fff;
+    }
+    &.social-facebook:hover {
+        background: $social-facebook;
+        border-color: $social-facebook;
+    }
+    &.social-twitter:hover {
+        background: $social-twitter;
+        border-color: $social-twitter;
+    }
+    &.social-linkedin:hover {
+        background: $social-linkedin;
+        border-color: $social-linkedin;
+    }
+    &.social-email:hover {
+        background: $social-email;
+        border-color: $social-email;
+    }
+    &.social-google:hover {
+        background: $social-google;
+        border-color: $social-google;
+    }
+    &.social-pinterest:hover {
+        background: $social-pinterest;
+        border-color: $social-pinterest;
+    }
+    &.social-reddit:hover {
+        background: $social-reddit;
+        border-color: $social-reddit;
+    }
+    &.social-tumblr:hover {
+        background: $social-tumblr;
+        border-color: $social-tumblr;
+    }
+    &.social-vk:hover {
+        background: $social-vk;
+        border-color: $social-vk;
+    }
+    &.social-whatsapp:hover {
+        background: $social-whatsapp;
+        border-color: $social-whatsapp;
+    }
+    &.social-xing:hover {
+        background: $social-xing;
+        border-color: $social-xing;
+    }
+    &.social-instagram:hover {
+        background: $social-instagram;
+        border-color: $social-instagram;
+    }
+}
+
+/*
+Other Styles
+    - No Border
+    - Inline Style
+*/
+
+// No Border
+.no-border {
+    .social-link {
+        border: 0;
+        line-height: 30px;
+        &:not(:hover) {
+            background: transparent;
+        }
+    }
+}
+// Inline Style
+.inline-links {
+    .social-link {
+        display: inline-block;
+        margin-right: 2rem;
+        width: auto;
+        height: auto;
+        border: 0;
+        color: inherit;
+        &:not(:last-child) {
+            margin-right: 2rem;
+        }
+        &:hover {
+            background: transparent;
+        }
+        &.social-facebook:hover {
+            color: $social-facebook;
+        }
+        &.social-twitter:hover {
+            color: $social-twitter;
+        }
+        &.social-linkedin:hover {
+            color: $social-linkedin;
+        }
+        &.social-email:hover {
+            color: $social-email;
+        }
+        &.social-google:hover {
+            color: $social-google;
+        }
+        &.social-pinterest:hover {
+            color: $social-pinterest;
+        }
+        &.social-reddit:hover {
+            color: $social-reddit;
+        }
+        &.social-tumblr:hover {
+            color: $social-tumblr;
+        }
+        &.social-vk:hover {
+            color: $social-vk;
+        }
+        &.social-whatsapp:hover {
+            color: $social-whatsapp;
+        }
+        &.social-xing:hover {
+            color: $social-xing;
+        }
+        &.social-instagram:hover {
+            color: $social-instagram;
+        }
+    }
+}
+

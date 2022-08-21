@@ -1,0 +1,843 @@
+/* -------------------------------------------
+    Shop Page
+        - Shop Banner
+
+        - Toolbox
+            (support toolbox, toolbox-left, toolbox-right)
+            (support label, select-box)
+        - Toolbox Item
+            (support full)
+        - Layout Button
+        - Select Menu
+            (support as sidebar's widget < 992px)
+            (support toggle)
+        - Select Items
+        - Toolbox Pagination
+        - Toolbox Horizontal
+        - Toolbox Navigation
+            (support as sidebar-fixed)
+            (please place sidebar before toolbox: to know sidebar's close status)
+---------------------------------------------- */
+
+// Shop Banner
+.shop-banner-default,.shop-boxed-banner {
+    .banner-subtitle { 
+        margin-bottom: .6rem;
+        font-size: 2em; 
+    }
+    .banner-title { 
+        margin-bottom: 2.4rem;
+        font-size: 4em;
+        letter-spacing: -.035em;
+    }
+    .btn {
+        padding: 1.2em 2.8em;
+        border-color: #919EB2;
+        i { 
+            vertical-align: middle;
+            margin-left: .7rem;
+            font-size: 2.2rem; 
+        }
+        &:hover, &:active, &:focus {
+            border-color: $white-color;
+        }
+    }
+}
+
+.shop-banner-default {
+    padding: 7.5rem 5.7% 8.3rem;
+}
+
+.shop-boxed-banner {
+    padding: 7.4rem 7% 8.4rem;
+}
+
+
+// Toolbox, Filter Clean Widget, Filter Price Widget
+
+.toolbox,
+.toolbox-left,
+.toolbox-right,
+.toolbox-item,
+.toolbox-item-full {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+.toolbox {
+    justify-content: space-between;
+}
+.toolbox {
+    font-size: 1.3rem; 
+    line-height: 1.5;   
+    padding: 3.5rem .2rem 1rem;
+    transition: margin .4s;
+    background-color: #fff;
+
+    &.sticky-toolbox {
+        padding-top: 3rem;
+    }
+
+    &, &-left, &-right {
+        > *:not(:last-child) {
+            margin-right: 1.8rem;
+        }
+    }
+
+    label {
+        margin-right: .8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    select {
+        cursor: pointer;
+        padding-top: .85rem;
+        padding-bottom: .85rem;
+        border-color: #ccc;
+    }
+    .select-box .form-control {
+        color: #222;
+    }
+    .select-box::before {
+        font-size: 1rem;
+        right: 1rem;
+    }
+    
+    // ToolBox Sort
+    .toolbox-sort {
+        .form-control {
+            max-width: 15rem;
+            padding-left: 1.4rem;
+        }
+        &::before {
+            right: 1.4rem;
+        }
+    }
+    
+    // .left-sidebar-toggle {
+    //     padding: .8em 1.04em;
+    //     i {
+    //         margin-bottom: .1rem;
+    //         &::before {
+    //             font-weight: 600;
+    //         }
+    //     }
+    // }
+}
+.toolbox-item {
+    flex-wrap: nowrap;
+    margin-bottom: 1rem;
+    label { color: $dark-color; }
+}
+.toolbox-item-full {
+    flex-basis: 100%;
+}
+
+// Layout Button
+.btn-layout {
+    color: #dadada;
+    font-size: 22px;
+    padding: 0 2px;
+
+    &:last-child {
+        padding-right: 0;
+    }
+
+    &:hover,
+    &.active {
+        color: #333;
+    }
+
+    & + & {
+        margin-left: 2px;
+    }
+}
+
+// Select Menu
+.select-menu {
+    color: #222;
+
+    &::before {
+        right: 1.25em;
+        font-size: 1.2rem;
+        margin-top: 1px;
+    }
+
+    ul, ul::before {
+        content: '';
+        position: absolute;
+        border: 1px solid $border-color-light;
+        width: 11px;
+    }
+
+    ul {
+        top: 100%;
+        z-index: 100;
+        width: 18rem;
+        margin-top: 1rem;
+        padding: 1rem 1.4rem 1rem;
+        background: #fff;
+        opacity: 0;
+        visibility: hidden;
+
+        &::before {
+            top: -6px;
+            left: 22px;
+            height: 11px;
+            border-width: 1px 0 0 1px;
+            background: #fff;
+            transform: rotate(45deg);
+        }
+    }
+
+    &.opened > ul {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.select-menu select,
+.select-menu-toggle {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: .8rem 4rem .8rem 1.4rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    letter-spacing: -.03em;
+}
+
+.select-menu-toggle {
+    border-radius: 2px;
+}
+
+.select-menu {
+    select {
+        max-width: 17.2rem;
+        padding: .85rem 2.6rem .85rem .9rem;
+    }
+}
+
+// Select Items
+.select-item {
+    padding: 6px .7rem 4px 1.2rem;
+    color: #222;
+    background: #eee;
+    letter-spacing: -.01em;
+
+    i {
+        padding: .5rem .6rem .7rem;
+        margin-left: 5px;
+        font-size: 9px;
+        vertical-align: middle;
+    }
+}
+
+.select-items {
+    // display: none;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: .4s;
+
+    .select-item {
+        transition: opacity .4s;
+    }
+
+    .toolbox + & {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    > * {
+        display: inline-block;
+        margin: 0 .8rem .5rem 0;
+    }
+
+    .filter-clean {
+        margin-left: 1.2rem;
+    }
+}
+
+.sticky-content-wrapper + .select-items {
+    font-size: 1.2rem;
+    margin: 2px 0 1.8rem;
+}
+
+// Toolbox Pagination
+.toolbox-pagination {
+    position: relative;
+    margin-bottom: 1rem;
+    padding: 2.5rem .2rem;
+    border-top: 1px solid #e1e1e1;
+}
+
+// Toolbox Horizontal
+.toolbox-horizontal {
+    .show-info {
+        color: #999;
+        font-size: inherit;
+    }
+    &.fixed {
+        .sidebar-overlay, .sidebar-content {
+            min-height: 100vh;
+        }
+    }
+
+    @include mq(lg) {
+        .toolbox-left {
+            padding-right: 1px;
+            margin-right: -1px;
+        }
+    }
+}
+
+//Left Sidebar Toggle
+.toolbox .toolbox-left .left-sidebar-toggle,
+.sidebar-content .filter-actions .sidebar-toggle-btn,
+.toolbox .top-sidebar-toggle {
+    // padding: .61em .92em .61em;
+    padding: .7em .92em;
+    margin-right: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    .d-icon-filter-2 {
+        font-size: 1.4rem;
+        &::before {
+            font-weight: 600;
+        }
+    }
+}
+
+.toolbox .toolbox-right .right-sidebar-toggle {
+    padding: .7em .92em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.toolbox .toolbox-left .left-sidebar-toggle {
+    font-weight: 600;
+}
+
+.toolbox-item.right-sidebar-toggle {
+    margin-right: 0;
+}
+
+// Navigation Style
+.toolbox-wrap {
+    display: flex;
+    flex-direction: column-reverse;
+    line-height: 1.3;
+
+    // Toolbox
+    .toolbox > * {
+        line-height: 37px;
+    }
+    .toolbox-layout {
+        display: flex;
+    }
+
+    // select {
+    //     max-width: 16rem;
+    //     padding-left: 3px;
+    //     padding-right: 2.4em;
+    //     text-transform: uppercase;
+    //     font-weight: 600;
+    // }
+
+    option {
+        text-transform: none;
+    }
+    .toolbox-layout {
+        display: flex;
+    }
+
+    //Sidebar Content
+    .sidebar-content {
+        .widget-title {
+            padding-bottom: 1rem;
+        }
+    }
+
+    // Sidebar Content
+    // .widget-title {
+    //     padding-bottom: 1.3rem;
+    //     border-top: 0;
+    // }
+    // .sidebar-fixed .sidebar-content {
+    //     padding-bottom: 0;
+    // }
+}
+.sticky-toolbox.fixed {
+    position: fixed;
+    background-color: #fff;
+    padding: 1rem 2rem 0;
+}
+
+// Filter Action, Price Slider, Filter Clean
+.widget .widget-body .filter-actions {
+    display: block;
+	padding: 3.2rem 0 1.5rem .2rem;
+}
+
+.filter-price-text {
+	font-size: 1.3rem;
+    color: $dark-color;
+    
+}
+
+.filter-items a::before {
+	content: '';
+	position: absolute;
+	border: 1px solid $grey-color;
+	width: 18px;
+	height: 18px;
+	border-radius: 2px;
+	top: 50%;
+	transform: translateY(-50%);
+	left: -2.7rem;
+	font-size: .7em;
+	font-weight: 900;
+	font-family: 'Font Awesome 5 Free';
+	text-align: center;
+	text-indent: 1px; // issue
+	line-height: 1.7em;
+
+	@include only-for-retina(1.5) {
+		text-indent: 0;
+	}
+}
+
+// .sticky-sidebar-wrapper .widget:first-child {
+// 	border-top: 3px solid $border-color-light;
+// }
+
+.toolbox .btn-link {
+	padding: 0;
+}
+.filter-clean {
+	font-size: 1.4rem;
+    margin-left: auto;
+    color: $dark-color;
+    transition: .3s;
+    &:hover {
+        color: $primary-color;
+    }
+}
+
+.toolbox-wrap .card-body .filter-clean {
+    display: inline;
+    opacity: 0;
+}
+
+.toolbox-wrap .expanded .filter-clean {
+    opacity: 1;
+}
+
+.card.navigation-card {
+    &.expanded {
+        overflow: visible;
+    }
+
+    &:not(.collapsed) + .toolbox .toolbox-right {
+        opacity: 0;
+        transform: opacity .3s;
+    }
+
+    > div:not(.card-header) {
+        overflow: unset !important;
+    }
+}
+
+// Shop Sidebar
+.shop-sidebar {
+	position: relative;
+
+    // .sidebar-content {
+	// 	padding: 3rem;
+	// }
+
+	// .filter-actions {
+	// 	padding-top: 0;
+	// }
+	// issue : need?
+    .btn-outline:not(:hover) {
+        color: $primary-color;
+        background: #fff;
+	}
+	.sidebar-toggle-btn,
+	.left-sidebar-toggle {
+		padding: .8em 1.04em;
+    }
+
+    //Filter action
+    .filter-actions {
+        display: flex;
+        align-items: center;
+        padding-right: .6rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.btn-icon-right i {
+    margin-left: .8rem;
+    font-size: 1.8rem;
+}
+// Products Widget
+// .widget-products {
+// 	.widget-title {
+// 		margin-bottom: 2rem;
+// 		border-top: 0;
+// 		border-bottom: 1px solid $border-color;
+// 	}
+// 	.product-price {
+// 		color: $primary-color;
+// 	}
+// 	.owl-nav i {
+// 		font-size: 1.7rem;
+// 	}
+// 	.owl-nav {
+// 		top: -5.5rem;
+// 	}	
+// }
+
+
+// Responsive
+@include mq(lg) {
+	// .shop-sidebar .sidebar-content {
+	// 	padding-top: 3rem;
+	// }
+	.sidebar:not(.closed) .sticky-sidebar-fixed > .filter-actions {
+		visibility: hidden;
+	}
+	.sidebar-fixed {
+		.filter-actions:first-child {
+			padding-top: 3rem;
+		}
+
+		// &.shop-sidebar .sidebar-content {
+		// 	padding: 0 0 2rem;
+		// }
+		
+		// 5. Toggle Fixed Sidebar
+		transition: margin .4s;
+
+		+ .main-content {
+			transition: flex-basis .4s, max-width .4s;
+		}
+	}
+
+	.sticky-sidebar-wrapper.closed {
+		height: 0; // to solve issue occurs by closed sticky sidebar for fixed sidebar
+	}
+	.closed.sidebar {
+		margin-left: -25%;
+	}
+	.closed.right-sidebar {
+		margin-right: -25%;
+	}
+
+	.closed + .main-content {
+		max-width: 100%;
+		flex-basis: 100%;
+	}
+
+	// .main-content-wrap {
+	// 	overflow: hidden;
+	// }
+
+	// Remain Toggle
+	.sidebar-toggle-remain {
+		& .toggle-remain {
+			position: absolute;
+			transition: .4s;
+			left: 0;
+			@include only-for-ie() {
+				top: 2.7rem;
+			}
+		}
+		.filter-clean {
+			line-height: 3.7rem;
+		}
+		
+		// left sidebar
+		&.sidebar {
+            .toggle-remain i {
+                transition: transform .3s;
+            }
+			&.closed {
+				.toggle-remain {
+					left: calc(100% + 30px);
+
+					i {
+						transform: rotateY( 180deg );
+					}
+				}
+
+				+ * > .toolbox:first-child {
+                    margin-left: 10.8rem;
+				}
+			}
+
+			// for only left sidebar to hide "clean all"'s movement
+			.toggle-remain::before {
+				content: '';
+				position: absolute;
+				background-color: #fff;
+				right: calc(100% + 2px);
+				width: 20px;
+				bottom: -2px;
+				top: -2px;
+			}
+		}
+
+		// right sidebar
+		&.right-sidebar.closed {
+			.toggle-remain {
+				left: -3rem;
+				transform: translateX(-100%);
+
+				i::before {
+					content: "\e97e";
+				}
+			}
+
+			+ * > .toolbox:first-child {
+				padding-right: 11rem;
+			}
+		}
+    }
+    .toolbox-wrap .sidebar-content {
+        border-top: 3px solid $border-color-light;
+        transition: border .3s;
+        
+        & > div {
+            border-bottom: 3px solid $border-color-light;
+        }
+        .widget {
+            border: none;
+        }
+    }
+    .shop-sidebar .filter-actions {
+        margin-bottom: 0;
+    }
+}
+
+@include mq(xs, max) {   
+    .sticky-toolbox.fixed {
+        padding: 1rem 1.5rem 0;
+    }
+    .toolbox {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+@include mq(sm, max) {
+    .toolbox-item.select-box {
+        margin-right: 0;   
+    }
+
+    .toolbox-item.select-box ~ .toolbox-item.right-sidebar-toggle {
+        margin-left: 1rem;  
+    }
+    
+    .toolbox-item.toolbox-layout {
+        display: none;
+    }
+
+    .toolbox .toolbox-left .left-sidebar-toggle,
+    .sticky-sidebar .filter-actions .sidebar-toggle-btn {
+        margin-right: 1rem;
+    }
+
+    .toolbox  {
+        .toolbox-left {
+            margin: 0;
+        }
+
+        .left-sidebar-toggle {
+            margin-right: 0.5rem;
+        }
+
+        .toolbox-sort .form-control {
+            max-width: 12.8rem;
+        }
+    }
+
+    .toolbox-horizontal {
+        justify-content: flex-start;
+        flex-direction: row;
+
+        .toolbox-left {
+            margin-right: auto;
+        }
+
+        .toolbox-right {
+            margin-left: auto;
+        }
+
+        .toolbox-item.toolbox-show {
+            margin-right: 0;   
+        }
+    }
+    .toolbox-pagination {
+        flex-direction: column;
+
+        > .show-info {
+            margin-right: 0;
+        }
+
+        > *:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+@include mq(sm) {
+    .toolbox-horizontal {
+        .toolbox-left {
+            margin-right: auto;
+        }
+    }
+    // issue
+    .mr-sm-auto {
+        margin-right: auto!important;
+    }
+}
+
+@include mq(md,max) {
+    .toolbox-item {
+        label, > span, &.show-info {
+            display: none;
+        }
+    }
+}
+
+@include mq(lg, max) {
+    // Shop Sidebar : Mobile
+    .toolbox {
+        .sidebar-fixed {
+            margin-right: 0;
+        }
+        .sidebar-content {
+            display: block;
+        }
+    }
+
+    // Shop Sidebar's Select Menu : Mobile
+    .sidebar-content {
+        .select-menu {
+            display: block;
+            margin: 0;
+            font-size: 1.4rem;
+
+            ul {
+                position: static;
+                width: 100%;
+                padding: 0;
+                border: 0;
+                color: #666;
+                margin: 0 0 1.1rem;
+                opacity: 1;
+                visibility: visible;
+
+                a::before {
+                    width: 18px;
+                    height: 18px;
+                    margin-top: 0;
+                }
+            }
+
+            &::before,
+            ul::before,
+            > a::before {
+                content: none;
+            }
+        }
+        .select-menu-toggle {
+            display: block;
+            border-width: 3px 0 0;
+            padding: 2rem 2px 1.6rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+    }
+
+    .toolbox-item:first-child a {
+        border: none;
+    }
+
+    // Navigation Style
+    // .toolbox-wrap {
+    //     .widget-title {
+    //         border-top: 3px solid $border-color-light;
+    //     }
+    // }
+
+    .card.navigation-card.collapsed .card-header + div {
+        display: block !important;
+    }
+
+    .card.navigation-card.expanded + .toolbox .toolbox-right {
+        opacity: 1 !important;
+    }
+}
+
+@include mq(lg) {
+    .toolbox .sidebar-content {
+        max-width: none;
+    }
+
+    .toolbox-horizontal {
+        .sidebar-fixed {
+            .sidebar-content {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    // Navigation Style
+    .toolbox-wrap {
+        // .sidebar-content {
+        //     border: solid #ebebeb;
+        //     border-width: 3px 0;
+        //     margin-bottom: 2rem;
+        //     transition: border-color .3s;
+        // }
+
+        .filter-actions:first-child {
+            padding: 0;
+        }
+
+        .sidebar-toggle-btn {
+            display: none;
+        }
+
+        .sidebar.closed {
+            margin: 0;
+
+            .sidebar-content {
+                display: none;
+
+                // issue for toggle animation
+                border-color: transparent;
+                background: transparent;
+            }
+        }
+        .filter-clean {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: -40px;
+        }
+    }
+}
+@include mq(xl) {
+    .select-menu:not(:last-child):not(.toolbox-show) {
+        margin-right: 2rem;
+    }
+    .toolbox .shop-sidebar { margin-right: 2rem }
+}
